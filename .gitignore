@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/InstantEatService/.vs/InstantEatService/v16
+/AuthorizationService/.vs/AuthorizationService
+/AuthorizationService/AuthorizationService/bin/Debug/net5.0
+/AuthorizationService/AuthorizationService/obj
+/InstantEatService/InstantEatService/obj
+/InstantEatService/InstantEatService/bin/Debug/net5.0
+/InstantEatService/.vs/InstantEatService/DesignTimeBuild
