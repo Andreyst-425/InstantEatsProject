@@ -4,5 +4,89 @@
         <name>InstantEatService</name>
     </assembly>
     <members>
+        <member name="M:InstantEatService.Controllers.ClientController.GetAllClients">
+            <summary>
+            Получить список всех клиентов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.ClientController.GetClient(System.Guid)">
+            <summary>
+            Получить клиента по id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.ClientController.PostClient(InstantEatService.DtoModels.ClientCreateDto)">
+            <summary>
+            Создать клиента
+            </summary>
+            <param name="clientCreateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.ClientController.PutClient(System.Guid,System.String,System.String)">
+            <summary>
+            Обновить информацию о клиенте 
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <param name="phoneNumber"></param>
+        </member>
+        <member name="M:InstantEatService.Controllers.ClientController.DeleteClient(System.Guid)">
+            <summary>
+            Удалить клиента
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:InstantEatService.Controllers.FoodItemController.GetAllFoodItems">
+            <summary>
+            Получить список всех блюд
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.FoodItemController.GetFoodItem(System.Guid)">
+            <summary>
+            Получить блюдо по id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.FoodItemController.PostFoodItem(InstantEatService.DtoModels.FoodItemDto)">
+            <summary>
+            Создать новое блюдо
+            </summary>
+            <param name="foodItemDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.FoodItemController.PutFoodItem(System.Guid,InstantEatService.DtoModels.FoodItemDto)">
+            <summary>
+            Обновить блюдо
+            </summary>
+            <param name="id"></param>
+            <param name="foodItemDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.FoodItemController.DeleteFoodItem(System.Guid)">
+            <summary>
+            Удалить блюдо
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="P:InstantEatService.DtoModels.ClientCreateDto.Name">
+            <summary>
+            Имя
+            </summary>
+        </member>
+        <member name="P:InstantEatService.DtoModels.ClientCreateDto.PhoneNumber">
+            <summary>
+            Номер телефона
+            </summary>
+        </member>
+        <member name="P:InstantEatService.DtoModels.ClientCreateDto.Role">
+            <summary>
+            Роль
+            </summary>
+        </member>
     </members>
 </doc>
