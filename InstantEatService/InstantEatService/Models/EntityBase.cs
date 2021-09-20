@@ -8,5 +8,6 @@ namespace InstantEatService.Models
     public class EntityBase
     {
         public Guid Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }
