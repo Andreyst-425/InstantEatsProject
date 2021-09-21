@@ -10,13 +10,11 @@ namespace InstantEatService.DtoModels
     {
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
-        public Role? Role { get; set; }
 
         public ClientDto(Client client)
         {
             Name = client.Name;
             PhoneNumber = client.PhoneNumber;
-            Role = client.Role;
         }
 
     }

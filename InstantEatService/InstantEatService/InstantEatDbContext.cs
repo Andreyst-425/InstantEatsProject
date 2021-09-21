@@ -32,6 +32,7 @@ namespace InstantEatService
             modelBuilder.Entity<Client>().HasKey(c => c.Id).HasName("PK_Client_Id");
             modelBuilder.Entity<FoodItem>().HasKey(c => c.Id).HasName("PK_FoodItem_Id");
 
+
             modelBuilder.Entity<Cart>(entity =>
             {
                 entity.ToTable("Carts");

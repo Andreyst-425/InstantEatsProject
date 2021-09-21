@@ -9,10 +9,27 @@ using System.Threading.Tasks;
 
 namespace InstantEatService.Repositories
 {
-    public class ClientsInMsSqlRepository : IDisposable, IClients
+    public class ClientsInMsSqlRepository : IDisposable, IClientsRepository
     {
         private readonly InstantEatDbContext _db;
         private readonly ILogger<ClientsInMsSqlRepository> _logger;
+
+
+        //xml if ti is public
+        // or comments everywhere
+
+
+        //Server взаимодействие с клиентом
+        //взаимодейстиве с бд
+        //useServer patterns
+        //Защита по уровням
+        //Защита по функциональности
+        //обзаор программ связанный с доставкой еды 
+        //выюор стека технологии (обзор)
+        // прикинуть нагрузку на бд и вырать бд например или какой либо сервис
+
+        // method Assert(strExp)
+        // method Log()
 
         public ClientsInMsSqlRepository(InstantEatDbContext db, ILogger<ClientsInMsSqlRepository> logger)
         {
@@ -32,21 +49,22 @@ namespace InstantEatService.Repositories
         public async Task<Client> GetClient(Guid id)
         {
             var function = nameof(GetClient);
-            _logger.LogTrace($"{function}() is worked out");
+            _logger.LogTrace($"{function}({nameof(id)}) is worked out");
 
             if (id == Guid.Empty)
-                throw new NullReferenceException("Client id is empty");
+                throw new NullReferenceException($"{nameof(id)} is empty");
 
             return await _db.Clients.FirstOrDefaultAsync(c => c.Id == id);
         }
 
+       
         public async Task<Client> CreateClient(ClientCreateDto clientCreateDto)
         {
             var function = nameof(CreateClient);
-            _logger.LogTrace($"{function}() is worked out");
+            _logger.LogTrace($"{function}({nameof(clientCreateDto)}) is worked out");
 
             if (clientCreateDto == null)
-                throw new NullReferenceException("clientCreateDto param is null");
+                throw new NullReferenceException($"{nameof(clientCreateDto)} param is null");
 
             var newClient = clientCreateDto.ToEntity();
 
@@ -56,28 +74,24 @@ namespace InstantEatService.Repositories
             return newClient;
         }
 
-        public async Task<bool> UpdateClient(Guid id, string name, string phoneNumber)
+
+        public async Task<bool> UpdateClient(Guid id, ClientCreateDto clientCreateDto)
         {
             var function = nameof(UpdateClient);
-            _logger.LogTrace($"{function}() is worked out");
+            _logger.LogTrace($"{function}({nameof(id)}, {nameof(clientCreateDto)}) is worked out");
 
-            //Разобраться с null и пустыми объектами
-
-            if (name == null)
-                throw new NullReferenceException($"{nameof(name)} param is null");
-
-            if (phoneNumber == null)
-                throw new NullReferenceException($"{nameof(phoneNumber)} param is null");
+            if (clientCreateDto == null)
+                throw new NullReferenceException($"{nameof(clientCreateDto)} param is null");
 
             if (id == Guid.Empty)
-                throw new NullReferenceException("Client id is empty");
+                throw new NullReferenceException($"{nameof(id)} is empty");
 
             var client = await GetClient(id);
 
             if (client == null) return false;
 
-            client.Name = name;
-            client.PhoneNumber = phoneNumber;
+            client.Name = clientCreateDto.Name;
+            client.PhoneNumber = clientCreateDto.PhoneNumber;
 
             _db.Update(client);
             await _db.SaveChangesAsync();
@@ -88,10 +102,10 @@ namespace InstantEatService.Repositories
         public async Task<bool> DeleteClient(Guid id)
         {
             var function = nameof(DeleteClient);
-            _logger.LogTrace($"{function}() is worked out");
+            _logger.LogTrace($"{function}({nameof(id)}) is worked out");
 
             if (id == Guid.Empty)
-                throw new NullReferenceException("Client id param is empty");
+                throw new NullReferenceException($"{nameof(id)}  param is empty") ;
 
             var client = await GetClient(id);
 

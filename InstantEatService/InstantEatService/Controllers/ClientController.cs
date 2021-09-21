@@ -16,9 +16,9 @@ namespace InstantEatService.Controllers
     public class ClientController : ControllerBase
     {
 
-        private readonly IClients _clients;
+        private readonly IClientsRepository _clients;
 
-        public ClientController(IClients clients)
+        public ClientController(IClientsRepository clients)
         {
             _clients = clients;
         }
@@ -73,23 +73,22 @@ namespace InstantEatService.Controllers
         }
 
         /// <summary>
-        /// Обновить информацию о клиенте 
+        /// Обновить информацию о клиенте по id
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="name"></param>
-        /// <param name="phoneNumber"></param>
+        /// <param name="clientCreateDto"></param>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> PutClient(Guid id, string name, string phoneNumber)
+        public async Task<ActionResult> PutClient(Guid id, [FromBody] ClientCreateDto clientCreateDto)
         {
-            var isUpdated = await _clients.UpdateClient(id, name, phoneNumber);
+            var isUpdated = await _clients.UpdateClient(id, clientCreateDto);
             return isUpdated ? Ok() : NotFound();
         }
 
         /// <summary>
-        /// Удалить клиента
+        /// Удалить клиента по id
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("{id}")]
