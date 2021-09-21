@@ -32,7 +32,8 @@ namespace InstantEatService
             services.AddDbContext<InstantEatDbContext>(options =>
                 options.UseSqlServer(connection));
 
-            services.AddScoped<IClients, ClientsInMsSqlRepository>();
+            services.AddScoped<IClientsRepository, ClientsInMsSqlRepository>();
+            services.AddScoped<IFoodItemsRepository, FoodItemsInMsSqlRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

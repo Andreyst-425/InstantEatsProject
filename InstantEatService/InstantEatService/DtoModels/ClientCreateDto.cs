@@ -18,19 +18,16 @@ namespace InstantEatService.DtoModels
         /// </summary>
         public string PhoneNumber { get; set; }
 
-        /// <summary>
-        /// Роль
-        /// </summary>
-        public Role Role { get; set; }
-
         public Client ToEntity()
         {
             return new Client()
             {
                 Name = Name,
                 PhoneNumber = PhoneNumber,
-                Role = Role
             };
         }
     }
 }
+
+
+//Patch 

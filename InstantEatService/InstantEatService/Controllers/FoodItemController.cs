@@ -1,5 +1,6 @@
 ﻿using InstantEatService.DtoModels;
 using InstantEatService.Models;
+using InstantEatService.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,23 @@ namespace InstantEatService.Controllers
     [ApiController]
     public class FoodItemController : ControllerBase
     {
+        private readonly IFoodItemsRepository _foodItems;
+
+        public FoodItemController(IFoodItemsRepository foodItems)
+        {
+            _foodItems = foodItems;
+        }
+
         /// <summary>
         /// Получить список всех блюд
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FoodItemDto>>> GetAllFoodItems()
+        public async Task<IEnumerable<FoodItemDto>> GetAllFoodItems()
         {
             await Task.CompletedTask;
-            return Ok();
+            var foodItems = _foodItems.GetAllFoodItems();
+            return foodItems.Select(f => new FoodItemDto(f));
         }
 
         /// <summary>
@@ -32,45 +41,48 @@ namespace InstantEatService.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<FoodItemDto>> GetFoodItem(Guid id)
         {
-            await Task.CompletedTask;
-            return Ok();
+            var foodItem = await _foodItems.GetFoodItem(id);
+
+            if (foodItem == null) return NotFound();
+
+            return Ok(new FoodItemDto(foodItem));
         }
 
         /// <summary>
         /// Создать новое блюдо
         /// </summary>
-        /// <param name="foodItemDto"></param>
+        /// <param name="foodItemCreateDto"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult> PostFoodItem([FromBody] FoodItemDto foodItemDto)
+        public async Task<ActionResult<FoodItemDto>> PostFoodItem([FromBody] FoodItemCreateDto foodItemCreateDto)
         {
-            await Task.CompletedTask;
-            return Ok();
+            var foodItem = await _foodItems.CreateFoodItem(foodItemCreateDto);
+            return Ok(new FoodItemDto(foodItem));
         }
 
         /// <summary>
-        /// Обновить блюдо
+        /// Обновить блюдо по id
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="foodItemDto"></param>
+        /// <param name="foodItemCreateDto"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutFoodItem(Guid id, [FromBody] FoodItemDto foodItemDto )
+        public async Task<ActionResult> PutFoodItem(Guid id, [FromBody] FoodItemCreateDto foodItemCreateDto )
         {
-            await Task.CompletedTask;
-            return Ok();
+            var isUpdated = await _foodItems.UpdateFoodItem(id, foodItemCreateDto);
+            return isUpdated ? Ok() : NotFound();
         }
 
         /// <summary>
-        /// Удалить блюдо
+        /// Удалить блюдо по id 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteFoodItem(Guid id)
         {
-            await Task.CompletedTask;
-            return Ok();
+            var isDeleted = await _foodItems.DeleteFoodItem(id);
+            return isDeleted ? Ok() : NotFound();
         }
     }
 }
