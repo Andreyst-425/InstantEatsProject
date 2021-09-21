@@ -1,3 +1,4 @@
+using InstantEatService.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,10 +32,13 @@ namespace InstantEatService
             services.AddDbContext<InstantEatDbContext>(options =>
                 options.UseSqlServer(connection));
 
+            services.AddScoped<IClients, ClientsInMsSqlRepository>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "InstantEatService", Version = "v1" });
+                c.IncludeXmlComments("InstantEatService.xml", true);
             });
         }
 
