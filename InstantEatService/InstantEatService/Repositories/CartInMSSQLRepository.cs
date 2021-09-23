@@ -17,21 +17,39 @@ namespace InstantEatService.Models
             _logger = logger;
         }
 
+        private void Logging(string methodName)
+        {
+            var method = methodName;
+            _logger.LogTrace($"{method}is worked out");
+        }
+
+        private void Logging(string methodName, string param)
+        {
+            var method = methodName;
+            _logger.LogTrace($"{method}({param})is worked out");
+
+        }
 
         public async Task<IEnumerable<Cart>> GetAllCarts()
         {
+            Logging(nameof(GetAllCarts));
+
             await Task.CompletedTask;
             return _db.Carts;
         }
 
         public async Task<Cart> GetCart(Guid id)
         {
+            Logging(nameof(GetCart),nameof(id));
+
             await Task.CompletedTask;
             return _db.Carts.FirstOrDefault(c => c.Id == id);
         }
 
         public async Task<bool> DeleteCart(Guid id)
         {
+            Logging(nameof(DeleteCart), nameof(id));
+
             var cart = await GetCart(id);
             cart.IsDeleted = true;
             await _db.SaveChangesAsync();
@@ -41,6 +59,8 @@ namespace InstantEatService.Models
 
         public async Task<bool> RestoreCart(Guid id)
         {
+            Logging(nameof(RestoreCart), nameof(id));
+
             var cart = await GetCart(id);
             cart.IsDeleted = false;
             await _db.SaveChangesAsync();
@@ -50,6 +70,8 @@ namespace InstantEatService.Models
 
         public async Task<Cart> AddCart(Cart cart)
         {
+            Logging(nameof(AddCart), nameof(cart));
+
             var newCart = new Cart
             {
                 IsDeleted = cart.IsDeleted,
@@ -57,7 +79,6 @@ namespace InstantEatService.Models
                 DeliveryAdress = cart.DeliveryAdress,
                 FoodItems = cart.FoodItems,
                 OrderNumber = cart.OrderNumber,
-                PaymentType = cart.PaymentType,
                 Quantity = cart.Quantity,
                 TotalPrice = cart.TotalPrice
             };
@@ -69,9 +90,11 @@ namespace InstantEatService.Models
 
             return newCart;
         }
-
+        
         public async Task<bool> UpdateCart(Cart cart)
         {
+            Logging(nameof(UpdateCart), nameof(cart));
+
             var updatingCart = await GetCart(cart.Id);
             if (updatingCart == null || updatingCart.IsDeleted)
                 return false;

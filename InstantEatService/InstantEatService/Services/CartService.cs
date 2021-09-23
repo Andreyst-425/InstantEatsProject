@@ -26,13 +26,12 @@ namespace InstantEatService.Services
             return await _carts.GetCart(id);
         }
 
-        public async Task<Cart> AddCart(string address, PaymentType paymentType, Guid clientId, [FromBody] Client client)
+        public async Task<Cart> AddCart(string address, Guid clientId, [FromBody] Client client)
         {
             var newCart = new Cart
             {
                 ClientId = clientId,
                 DeliveryAdress = address,
-                PaymentType = paymentType,
                 IsDeleted = false,
                 Quantity = 0,
                 TotalPrice = 0,
