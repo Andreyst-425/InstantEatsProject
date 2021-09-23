@@ -52,6 +52,7 @@ namespace InstantEatService.Models
 
             var cart = await GetCart(id);
             cart.IsDeleted = true;
+            cart.IsCanceled = true;
             await _db.SaveChangesAsync();
             await _db.DisposeAsync();
             return true;
@@ -80,7 +81,8 @@ namespace InstantEatService.Models
                 FoodItems = cart.FoodItems,
                 OrderNumber = cart.OrderNumber,
                 Quantity = cart.Quantity,
-                TotalPrice = cart.TotalPrice
+                TotalPrice = cart.TotalPrice,
+                IsCanceled = cart.IsCanceled
             };
 
             _db.Carts.Add(newCart);
