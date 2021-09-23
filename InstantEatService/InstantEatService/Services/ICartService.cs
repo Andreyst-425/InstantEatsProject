@@ -13,5 +13,7 @@ namespace InstantEatService.Services
         Task<Cart> GetCart(Guid id);
         Task<IEnumerable<Cart>> GetCarts();
         Task<bool> UpdateCart(Cart cart);
+        Task<List<Cart>> GetCurrentCarts();
+
     }
 }
