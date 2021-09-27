@@ -27,7 +27,5 @@ namespace InstantEatService.Controllers
             var jsonData = JsonSerializer.Serialize(clients);
             return jsonData;
         }
-
-       
     }
 }
