@@ -37,7 +37,7 @@ namespace InstantEatService.Repositories
             _logger = logger;
         }
 
-        public IEnumerable<Client> GetAllClients()
+        public async Task<IEnumerable<Client>> GetAllClients()
         {
             var function = nameof(GetAllClients);
             _logger.LogTrace($"{function}() is worked out");

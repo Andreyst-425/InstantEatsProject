@@ -4,6 +4,33 @@
         <name>InstantEatService</name>
     </assembly>
     <members>
+        <member name="M:InstantEatService.Controllers.CartController.Get">
+            <summary>
+            Получение всех объектов Cart
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.CartController.Get(System.Guid)">
+            <summary>
+            Получение корзины по идентификатору
+            </summary>
+            <param name="id"> идентификатор </param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.CartController.Add(InstantEatService.Models.Cart)">
+            <summary>
+            Добавить новую корзину 
+            </summary>
+            <param name="cart"> Данные для добавления </param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.CartController.Update(InstantEatService.Models.Cart)">
+            <summary>
+            Обновить содержимое корзины
+            </summary>
+            <param name="cart"> Данные для обновления </param>
+            <returns></returns>
+        </member>
         <member name="M:InstantEatService.Controllers.ClientController.GetAllClients">
             <summary>
             Получить список всех клиентов
@@ -17,11 +44,10 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.ClientController.PostClient(InstantEatService.DtoModels.ClientCreateDto)">
+        <member name="M:InstantEatService.Controllers.ClientController.PostClient">
             <summary>
             Создать клиента
             </summary>
-            <param name="clientCreateDto"></param>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Controllers.ClientController.PutClient(System.Guid,InstantEatService.DtoModels.ClientCreateDto)">

@@ -1,7 +1,7 @@
 ﻿using InstantEatService.Models;
 using System.Collections.Generic;
 
-namespace InstantEatService.Servises
+namespace InstantEatService.Services
 {
     public interface IFoodItemsService
     {

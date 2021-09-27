@@ -1,7 +1,7 @@
 ﻿using InstantEatService.DtoModels;
 using InstantEatService.Models;
 using InstantEatService.Repositories;
-using InstantEatService.Servises;
+using InstantEatService.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
