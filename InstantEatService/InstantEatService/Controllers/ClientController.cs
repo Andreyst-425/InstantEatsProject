@@ -67,11 +67,8 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ClientDto> PostClient()
         {
-
             var phoneNumber = Request.Query.FirstOrDefault(p => p.Key == "phoneNumber").Value;
             //get client by phone number
-
-
             ClientCreateDto clientCreateDto = new ClientCreateDto()
             {
                 Name = Request.Query.FirstOrDefault(p => p.Key == "name").Value,

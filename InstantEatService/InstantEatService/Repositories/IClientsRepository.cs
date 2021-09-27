@@ -31,7 +31,7 @@ namespace InstantEatService.Repositories
         /// Получить список всех клиентов
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Client> GetAllClients();
+        Task<IEnumerable<Client>> GetAllClients();
         
         /// <summary>
         /// Получить клиента по id
