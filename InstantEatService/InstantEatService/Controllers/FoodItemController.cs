@@ -1,6 +1,7 @@
 ﻿using InstantEatService.DtoModels;
 using InstantEatService.Models;
 using InstantEatService.Repositories;
+using InstantEatService.Servises;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,17 +16,19 @@ namespace InstantEatService.Controllers
     public class FoodItemController : ControllerBase
     {
         private readonly IFoodItemsRepository _foodItems;
+        private readonly IFoodItemsService _foodService;
 
-        public FoodItemController(IFoodItemsRepository foodItems)
+        public FoodItemController(IFoodItemsRepository foodItems, IFoodItemsService foodService)
         {
             _foodItems = foodItems;
+            _foodService = foodService;
         }
 
         /// <summary>
         /// Получить список всех блюд
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("foodItems")]
         public async Task<IEnumerable<FoodItemDto>> GetAllFoodItems()
         {
             await Task.CompletedTask;
@@ -83,6 +86,21 @@ namespace InstantEatService.Controllers
         {
             var isDeleted = await _foodItems.DeleteFoodItem(id);
             return isDeleted ? Ok() : NotFound();
+        }
+
+
+        /// <summary>
+        /// Фильтровать по цене
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        [HttpGet("foodItems/filteredByPrice")]
+        public async Task<IEnumerable<FoodItemDto>> FilterByPrice(double min, double max)
+        {
+            await Task.CompletedTask;
+            var foodItems = _foodService.FilterByPrice(min, max);
+            return foodItems.Select(f => new FoodItemDto(f));
         }
     }
 }

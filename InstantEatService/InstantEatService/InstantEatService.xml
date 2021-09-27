@@ -72,6 +72,14 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:InstantEatService.Controllers.FoodItemController.FilterByPrice(System.Double,System.Double)">
+            <summary>
+            Фильтровать по цене
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
         <member name="P:InstantEatService.DtoModels.ClientCreateDto.Name">
             <summary>
             Имя

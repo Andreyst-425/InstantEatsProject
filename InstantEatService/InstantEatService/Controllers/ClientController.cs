@@ -61,15 +61,24 @@ namespace InstantEatService.Controllers
         /// <summary>
         /// Создать клиента
         /// </summary>
-        /// <param name="clientCreateDto"></param>
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<ClientDto>> PostClient([FromBody] ClientCreateDto clientCreateDto)
+        public async Task<ClientDto> PostClient()
         {
+
+            var phoneNumber = Request.Query.FirstOrDefault(p => p.Key == "phoneNumber").Value;
+            //get client by phone number
+
+
+            ClientCreateDto clientCreateDto = new ClientCreateDto()
+            {
+                Name = Request.Query.FirstOrDefault(p => p.Key == "name").Value,
+                PhoneNumber = phoneNumber
+            };
             var client = await _clients.CreateClient(clientCreateDto);
-            return Ok(new ClientDto(client));
+            return new ClientDto(client);
         }
 
         /// <summary>

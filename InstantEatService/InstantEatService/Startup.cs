@@ -1,4 +1,5 @@
 using InstantEatService.Repositories;
+using InstantEatService.Servises;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,12 +29,16 @@ namespace InstantEatService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("InstantEatDb");
+            var connection = Configuration.GetConnectionString("Sqlite");
+            //services.AddDbContext<InstantEatDbContext>(options =>
+            //    options.UseSqlServer(connection));
+
             services.AddDbContext<InstantEatDbContext>(options =>
-                options.UseSqlServer(connection));
+                options.UseSqlite(connection));
 
             services.AddScoped<IClientsRepository, ClientsInMsSqlRepository>();
             services.AddScoped<IFoodItemsRepository, FoodItemsInMsSqlRepository>();
+            services.AddScoped<IFoodItemsService, FoodItemsService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
