@@ -19,7 +19,7 @@ namespace InstantEatService.Repositories
         // or comments everywhere
 
 
-        //Server взаимодействие с клиентом
+        //Servers взаимодействие с клиентомы
         //взаимодейстиве с бд
         //useServer patterns
         //Защита по уровням
