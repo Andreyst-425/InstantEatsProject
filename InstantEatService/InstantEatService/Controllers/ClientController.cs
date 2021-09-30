@@ -1,6 +1,7 @@
-﻿using InstantEatService.DtoModels;
+﻿using InstantEatService.Dto;
 using InstantEatService.Models;
 using InstantEatService.Repositories;
+using InstantEatService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,10 +18,12 @@ namespace InstantEatService.Controllers
     {
 
         private readonly IClientsRepository _clients;
+        private readonly IClientService _clientService;
 
-        public ClientController(IClientsRepository clients)
+        public ClientController(IClientsRepository clients, IClientService clientService)
         {
             _clients = clients;
+            _clientService = clientService;
         }
 
         /// <summary>
@@ -32,8 +35,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IEnumerable<ClientDto>> GetAllClients()
         {
-            await Task.CompletedTask;
-            var clients = _clients.GetAllClients();
+            var clients = await _clients.GetAllClients();
             return clients.Select(c => new ClientDto(c));
         }
 
@@ -63,19 +65,28 @@ namespace InstantEatService.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ClientDto> PostClient()
+        public async Task<bool> PostClient()
         {
             var phoneNumber = Request.Query.FirstOrDefault(p => p.Key == "phoneNumber").Value;
-            //get client by phone number
-            ClientCreateDto clientCreateDto = new ClientCreateDto()
-            {
-                Name = Request.Query.FirstOrDefault(p => p.Key == "name").Value,
-                PhoneNumber = phoneNumber
-            };
-            var client = await _clients.CreateClient(clientCreateDto);
-            return new ClientDto(client);
+
+            var isPosted = await _clientService.PostClient(phoneNumber.ToString());
+
+            return isPosted;
+        }
+        
+        /// <summary>
+        /// Изменить имя клиента
+        /// </summary>
+        /// <returns></returns>
+        [HttpPatch]
+        public async Task<bool> PatchClientName()
+        {
+            var phoneNumber = Request.Query.FirstOrDefault(p => p.Key == "phoneNumber").Value;
+            var name = Request.Query.FirstOrDefault(p => p.Key == "name").Value;
+
+            var isPacthed = await _clients.UpdateClientName(phoneNumber.ToString(), name.ToString());
+
+            return isPacthed;
         }
 
         /// <summary>

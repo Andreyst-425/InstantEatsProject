@@ -1,4 +1,4 @@
-﻿using InstantEatService.DtoModels;
+﻿using InstantEatService.Dto;
 using InstantEatService.Models;
 using System;
 using System.Collections.Generic;

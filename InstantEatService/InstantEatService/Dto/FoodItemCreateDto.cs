@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InstantEatService.DtoModels
+namespace InstantEatService.Dto
 {
     public class FoodItemCreateDto
     {

@@ -1,4 +1,4 @@
-﻿using InstantEatService.DtoModels;
+﻿using InstantEatService.Dto;
 using InstantEatService.Models;
 using InstantEatService.Repositories;
 using InstantEatService.Services;

@@ -1,4 +1,4 @@
-﻿using InstantEatService.DtoModels;
+﻿using InstantEatService.Dto;
 using InstantEatService.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -39,6 +39,7 @@ namespace InstantEatService.Repositories
 
         public async Task<IEnumerable<Client>> GetAllClients()
         {
+            await Task.CompletedTask;
             var function = nameof(GetAllClients);
             _logger.LogTrace($"{function}() is worked out");
 
@@ -57,7 +58,7 @@ namespace InstantEatService.Repositories
             return await _db.Clients.FirstOrDefaultAsync(c => c.Id == id);
         }
 
-       
+
         public async Task<Client> CreateClient(ClientCreateDto clientCreateDto)
         {
             var function = nameof(CreateClient);
@@ -99,13 +100,36 @@ namespace InstantEatService.Repositories
             return true;
         }
 
+        public async Task<bool> UpdateClientName(string phoneNumber, string name)
+        {
+            var function = nameof(UpdateClientName);
+            _logger.LogTrace($"{function}({nameof(phoneNumber)}, {nameof(name)}) is worked out");
+
+            if (phoneNumber == null)
+                throw new NullReferenceException($"{nameof(phoneNumber)} param is null");
+
+            if (name == null)
+                throw new NullReferenceException($"{nameof(name)} param is null");
+
+            var client = await GetClientByPhoneNumber(phoneNumber);
+
+            if (client == null) return false;
+
+            client.Name = name;
+
+            _db.Clients.Update(client);
+            await _db.SaveChangesAsync();
+
+            return true;
+        }
+
         public async Task<bool> DeleteClient(Guid id)
         {
             var function = nameof(DeleteClient);
             _logger.LogTrace($"{function}({nameof(id)}) is worked out");
 
             if (id == Guid.Empty)
-                throw new NullReferenceException($"{nameof(id)}  param is empty") ;
+                throw new NullReferenceException($"{nameof(id)}  param is empty");
 
             var client = await GetClient(id);
 
@@ -115,6 +139,12 @@ namespace InstantEatService.Repositories
             await _db.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<Client> GetClientByPhoneNumber(string number)
+        {
+            var clients = await GetAllClients();
+            return clients.FirstOrDefault(c => c.PhoneNumber == number);
         }
 
         public void Dispose()

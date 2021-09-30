@@ -1,4 +1,5 @@
-﻿using InstantEatService.Models;
+﻿using InstantEatService.Dto;
+using InstantEatService.Models;
 using InstantEatService.Repositories;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InstantEatService.Services
 {
-    public class ClientService
+    public class ClientService : IClientService
     {
         private readonly IClientsRepository _clients;
 
@@ -15,10 +16,26 @@ namespace InstantEatService.Services
         {
             _clients = clients;
         }
-        public async Task<Client> GetClientByNumber(string number)
+
+        public async Task<bool> PostClient(string phoneNumber)
         {
-            var clients = await _clients.GetAllClients();
-            return clients.FirstOrDefault(c => c.PhoneNumber == number);
+            var client = await _clients.GetClientByPhoneNumber(phoneNumber);
+
+            if (client != null) return false;
+
+            var clientCreateDto = new ClientCreateDto() { PhoneNumber = phoneNumber, Name = null };
+
+            await _clients.CreateClient(clientCreateDto);
+
+            return true;
         }
+
+
+        public async Task<bool> PatchClientName(string phoneNumber, string name)
+        {
+            return await _clients.UpdateClientName(phoneNumber, name);
+        }
+
+
     }
 }

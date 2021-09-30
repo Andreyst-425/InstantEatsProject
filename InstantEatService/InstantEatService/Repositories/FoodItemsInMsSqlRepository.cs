@@ -1,4 +1,4 @@
-﻿using InstantEatService.DtoModels;
+﻿using InstantEatService.Dto;
 using InstantEatService.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
