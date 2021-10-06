@@ -9,8 +9,6 @@ namespace InstantEatService.Models
     {
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
-
-       
         public IEnumerable<Cart> Carts { get; set; }
 
  

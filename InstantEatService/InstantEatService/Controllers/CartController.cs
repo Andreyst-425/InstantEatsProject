@@ -34,6 +34,14 @@ namespace InstantEatService.Controllers
             return Ok(carts);
         }
 
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<List<CartDto>>> GetBusinessLunch()
+        {
+            var businessLunch = await _carts.GetBisunessLunch();
+            return Ok();
+        }
+
         /// <summary>
         /// Получение корзины по идентификатору
         /// </summary>
@@ -58,7 +66,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<CartDto>> Add([FromBody] Cart cart)
         {
-            var newCart = await _carts.AddCart(cart.DeliveryAdress, cart.ClientId, cart.Client);
+            var newCart = await _carts.AddCart(cart.AddressForDelivery, cart.ClientId, cart.Client);
 
             return Ok(new CartDto(newCart));
         }
@@ -87,6 +95,8 @@ namespace InstantEatService.Controllers
             if (isDeleted == false) return NotFound();
             return Ok();
         }
+
+
 
 
     }

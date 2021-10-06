@@ -15,6 +15,20 @@ namespace InstantEatService.Repositories
         private readonly ILogger<ClientsInMsSqlRepository> _logger;
 
 
+        private void Logging(string methodName)
+        {
+            _logger.LogTrace($"{methodName}is worked out");
+        }
+        private void Logging(string methodName, string param)
+        {
+            _logger.LogTrace($"{methodName}({param})is worked out");
+        }
+        private void Logging(string methodName, string param1,string param2)
+        {
+            _logger.LogTrace($"{methodName}({param1}, {param2}) is worked out");
+        }
+        
+
         //xml if ti is public
         // or comments everywhere
 
@@ -40,8 +54,7 @@ namespace InstantEatService.Repositories
         public async Task<IEnumerable<Client>> GetAllClients()
         {
             await Task.CompletedTask;
-            var function = nameof(GetAllClients);
-            _logger.LogTrace($"{function}() is worked out");
+            Logging(nameof(GetAllClients));
 
             return _db.Clients;
         }
@@ -49,8 +62,7 @@ namespace InstantEatService.Repositories
 
         public async Task<Client> GetClient(Guid id)
         {
-            var function = nameof(GetClient);
-            _logger.LogTrace($"{function}({nameof(id)}) is worked out");
+            Logging(nameof(GetClient), nameof(id));
 
             if (id == Guid.Empty)
                 throw new NullReferenceException($"{nameof(id)} is empty");
@@ -61,8 +73,7 @@ namespace InstantEatService.Repositories
 
         public async Task<Client> CreateClient(ClientCreateDto clientCreateDto)
         {
-            var function = nameof(CreateClient);
-            _logger.LogTrace($"{function}({nameof(clientCreateDto)}) is worked out");
+            Logging(nameof(CreateClient), nameof(clientCreateDto));
 
             if (clientCreateDto == null)
                 throw new NullReferenceException($"{nameof(clientCreateDto)} param is null");
@@ -78,8 +89,7 @@ namespace InstantEatService.Repositories
 
         public async Task<bool> UpdateClient(Guid id, ClientCreateDto clientCreateDto)
         {
-            var function = nameof(UpdateClient);
-            _logger.LogTrace($"{function}({nameof(id)}, {nameof(clientCreateDto)}) is worked out");
+            Logging(nameof(UpdateClient), nameof(id), nameof(clientCreateDto));
 
             if (clientCreateDto == null)
                 throw new NullReferenceException($"{nameof(clientCreateDto)} param is null");
@@ -102,8 +112,7 @@ namespace InstantEatService.Repositories
 
         public async Task<bool> UpdateClientName(string phoneNumber, string name)
         {
-            var function = nameof(UpdateClientName);
-            _logger.LogTrace($"{function}({nameof(phoneNumber)}, {nameof(name)}) is worked out");
+            Logging(nameof(UpdateClientName), nameof(phoneNumber), nameof(name));
 
             if (phoneNumber == null)
                 throw new NullReferenceException($"{nameof(phoneNumber)} param is null");
@@ -125,8 +134,7 @@ namespace InstantEatService.Repositories
 
         public async Task<bool> DeleteClient(Guid id)
         {
-            var function = nameof(DeleteClient);
-            _logger.LogTrace($"{function}({nameof(id)}) is worked out");
+            Logging(nameof(DeleteClient), nameof(id));
 
             if (id == Guid.Empty)
                 throw new NullReferenceException($"{nameof(id)}  param is empty");
@@ -143,6 +151,7 @@ namespace InstantEatService.Repositories
 
         public async Task<Client> GetClientByPhoneNumber(string number)
         {
+            Logging(nameof(GetClientByPhoneNumber), nameof(number));
             var clients = await GetAllClients();
             return clients.FirstOrDefault(c => c.PhoneNumber == number);
         }

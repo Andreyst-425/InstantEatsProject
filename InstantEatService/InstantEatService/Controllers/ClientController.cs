@@ -60,6 +60,23 @@ namespace InstantEatService.Controllers
             return Ok(new ClientDto(client));
         }
 
+        
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<ClientDto>> GetClientByPhoneNumber(string phoneNumber)
+        {
+            var client = await _clients.GetClientByPhoneNumber(phoneNumber);
+
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new ClientDto(client));
+        }
+
         /// <summary>
         /// Создать клиента
         /// </summary>

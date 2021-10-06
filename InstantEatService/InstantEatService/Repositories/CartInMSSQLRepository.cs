@@ -46,6 +46,8 @@ namespace InstantEatService.Models
             return _db.Carts.FirstOrDefault(c => c.Id == id);
         }
 
+
+
         public async Task<bool> DeleteCart(Guid id)
         {
             Logging(nameof(DeleteCart), nameof(id));
@@ -77,7 +79,7 @@ namespace InstantEatService.Models
             {
                 IsDeleted = cart.IsDeleted,
                 ClientId = cart.ClientId,
-                DeliveryAdress = cart.DeliveryAdress,
+                AddressForDelivery = cart.AddressForDelivery,
                 FoodItems = cart.FoodItems,
                 OrderNumber = cart.OrderNumber,
                 Quantity = cart.Quantity,

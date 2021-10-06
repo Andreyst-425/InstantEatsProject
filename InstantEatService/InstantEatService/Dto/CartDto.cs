@@ -13,7 +13,7 @@ namespace InstantEatService.Dto
         {
             TotalPrice = cart.TotalPrice;
             Quantity = cart.Quantity;
-            DeliveryAdress = cart.DeliveryAdress;
+            AddressForDelivery = cart.AddressForDelivery;
         }
 
         public double TotalPrice { get; set; }
@@ -21,7 +21,7 @@ namespace InstantEatService.Dto
         public int Quantity { get; set; }
 
         [MinLength(10)]
-        public string DeliveryAdress { get; set; }
+        public DeliveryAddress AddressForDelivery { get; set; }
 
     }
 }
