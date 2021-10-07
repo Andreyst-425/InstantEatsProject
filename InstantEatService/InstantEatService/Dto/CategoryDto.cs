@@ -12,7 +12,7 @@ namespace InstantEatService.Dto
 
         public CategoryDto(Category category)
         {
-            Name = category.Name;
+            Name =  category.Name;
         }
     }
 }

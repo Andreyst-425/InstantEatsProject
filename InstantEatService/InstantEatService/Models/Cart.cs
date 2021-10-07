@@ -11,7 +11,6 @@ namespace InstantEatService.Models
         public double TotalPrice { get; set; }
         public int Quantity { get; set; }
         public DeliveryAddress AddressForDelivery { get; set; }
-        public bool IsDeleted { get; set; }
         public bool IsCanceled { get; set; }
 
         public IEnumerable<FoodItem> FoodItems { get; set; }
