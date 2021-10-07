@@ -10,9 +10,7 @@ namespace InstantEatService.Models
         public int OrderNumber { get; set; }
         public double TotalPrice { get; set; }
         public int Quantity { get; set; }
-        public string DeliveryAdress { get; set; }
-        
-        //public PaymentType PaymentType { get; set; }
+        public DeliveryAddress AddressForDelivery { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsCanceled { get; set; }
 

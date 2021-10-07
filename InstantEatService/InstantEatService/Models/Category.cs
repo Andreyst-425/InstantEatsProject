@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace InstantEatService.Models
 {
-    public class Category : EntityBase
+    public class Category 
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
-        public bool IsDeleted { get; set; }
-
-        public IEnumerable<FoodItem> FoodItems { get; set; }
     }
 }

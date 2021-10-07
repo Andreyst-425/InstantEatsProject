@@ -77,7 +77,7 @@ namespace InstantEatService.Models
             {
                 IsDeleted = cart.IsDeleted,
                 ClientId = cart.ClientId,
-                DeliveryAdress = cart.DeliveryAdress,
+                AddressForDelivery = cart.AddressForDelivery,
                 FoodItems = cart.FoodItems,
                 OrderNumber = cart.OrderNumber,
                 Quantity = cart.Quantity,

@@ -20,18 +20,29 @@ namespace InstantEatService.Repositories
             _logger = logger;
         }
 
+        private void Logging(string methodName)
+        {
+            _logger.LogTrace($"{methodName}is worked out");
+        }
+        private void Logging(string methodName, string param)
+        {
+            _logger.LogTrace($"{methodName}({param})is worked out");
+        }
+        private void Logging(string methodName, string param1, string param2)
+        {
+            _logger.LogTrace($"{methodName}({param1}, {param2}) is worked out");
+        }
+
         public IEnumerable<FoodItem> GetAllFoodItems()
         {
-            var function = nameof(GetAllFoodItems);
-            _logger.LogTrace($"{function}() is worked out");
+            Logging(nameof(GetAllFoodItems));
 
             return _db.FoodItems;
         }
 
         public async Task<FoodItem> GetFoodItem(Guid id)
         {
-            var function = nameof(GetFoodItem);
-            _logger.LogTrace($"{function}({nameof(id)}) is worked out");
+            Logging(nameof(GetFoodItem), nameof(id));
 
             if (id == Guid.Empty)
                 throw new NullReferenceException($"{nameof(id)} is empty");
@@ -42,13 +53,10 @@ namespace InstantEatService.Repositories
 
         public async Task<FoodItem> CreateFoodItem(FoodItemCreateDto foodItemCreateDto)
         {
-            var function = nameof(CreateFoodItem);
-            _logger.LogTrace($"{function}({nameof(foodItemCreateDto)}) is worked out");
+            Logging(nameof(CreateFoodItem), nameof(foodItemCreateDto));
 
             if (foodItemCreateDto == null)
                 throw new NullReferenceException($"{nameof(foodItemCreateDto)} param is null");
-
-
             var newFoodItem = foodItemCreateDto.ToEntity();
 
             await _db.FoodItems.AddAsync(newFoodItem);
@@ -60,19 +68,15 @@ namespace InstantEatService.Repositories
 
         public async Task<bool> UpdateFoodItem(Guid id, FoodItemCreateDto foodItemCreateDto)
         {
-            var function = nameof(UpdateFoodItem);
-            _logger.LogTrace($"{function}({nameof(id)}, {nameof(foodItemCreateDto)}) is worked out");
+            Logging(nameof(UpdateFoodItem), nameof(id), nameof(foodItemCreateDto));
 
             if (foodItemCreateDto == null)
                 throw new NullReferenceException($"{nameof(foodItemCreateDto)} param is null");
-
             if (id == Guid.Empty)
                 throw new NullReferenceException($"{nameof(id)} is empty");
 
             var foodItem = await GetFoodItem(id);
-
             if (foodItem == null) return false;
-
             foodItem.Name = foodItemCreateDto.Name;
             foodItem.Price = foodItemCreateDto.Price;
             foodItem.PictureUrl = foodItemCreateDto.PictureUrl;
@@ -86,8 +90,7 @@ namespace InstantEatService.Repositories
 
         public async Task<bool> DeleteFoodItem(Guid id)
         {
-            var function = nameof(DeleteFoodItem);
-            _logger.LogTrace($"{function}({nameof(id)}) is worked out");
+            Logging(nameof(DeleteFoodItem),nameof(id));
 
             if (id == Guid.Empty)
                 throw new NullReferenceException($"{nameof(id)} param is empty");

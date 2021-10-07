@@ -32,12 +32,12 @@ namespace InstantEatService.Services
             return carts.Where(c=>c.IsCanceled == false).ToList();
         }
 
-        public async Task<Cart> AddCart(string address, Guid clientId, [FromBody] Client client)
+        public async Task<Cart> AddCart(DeliveryAddress address, Guid clientId, [FromBody] Client client)
         {
             var newCart = new Cart
             {
                 ClientId = clientId,
-                DeliveryAdress = address,
+                AddressForDelivery = address,
                 IsDeleted = false,
                 Quantity = 0,
                 TotalPrice = 0,
@@ -51,6 +51,12 @@ namespace InstantEatService.Services
             return await _carts.AddCart(newCart);
         }
 
+        public async Task<List<FoodItem>> GetBisunessLunch()
+        {
+            await Task.CompletedTask;
+
+            return null;
+        }
         public async Task<bool> DeleteCart(Guid id)
         {
             return await _carts.DeleteCart(id);
