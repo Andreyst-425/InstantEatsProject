@@ -51,9 +51,9 @@ namespace InstantEatService
             {
                 entity.ToTable("FoodItems");
 
-                entity.HasMany(f => f.Categories)
-                    .WithMany(c => c.FoodItems)
-                    .UsingEntity(j => j.ToTable("Category/FoodItem"));
+                //entity.HasMany(f => f.Categories)
+                //    .WithMany(c => c.FoodItems)
+                //    .UsingEntity(j => j.ToTable("Category/FoodItem"));
             });
 
             modelBuilder.Entity<Category>().ToTable("Categories");

@@ -46,8 +46,6 @@ namespace InstantEatService.Models
             return _db.Carts.FirstOrDefault(c => c.Id == id);
         }
 
-
-
         public async Task<bool> DeleteCart(Guid id)
         {
             Logging(nameof(DeleteCart), nameof(id));
