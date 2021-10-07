@@ -11,7 +11,6 @@ namespace InstantEatService.Models
         public double? Price { get; set; }
         public string Description { get; set; }
         public string PictureUrl { get; set; }
-        public bool IsDeleted { get; set; }
 
         public IEnumerable<Cart> Carts { get; set; }
         public IEnumerable<Category> Categories { get; set; }
