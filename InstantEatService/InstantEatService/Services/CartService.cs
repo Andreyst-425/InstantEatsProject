@@ -50,12 +50,7 @@ namespace InstantEatService.Services
             return await _carts.AddCart(newCart);
         }
 
-        public async Task<List<FoodItem>> GetBisunessLunch()
-        {
-            await Task.CompletedTask;
 
-            return null;
-        }
         public async Task<bool> DeleteCart(int id)
         {
             return await _carts.DeleteCart(id);

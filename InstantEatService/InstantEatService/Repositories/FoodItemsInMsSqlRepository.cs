@@ -33,7 +33,7 @@ namespace InstantEatService.Repositories
             _logger.LogTrace($"{methodName}({param1}, {param2}) is worked out");
         }
 
-        public IEnumerable<FoodItem> GetAllFoodItems()
+        public async Task<IEnumerable<FoodItem>> GetAllFoodItems()
         {
             Logging(nameof(GetAllFoodItems));
 

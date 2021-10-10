@@ -31,8 +31,7 @@ namespace InstantEatService.Controllers
         [HttpGet("foodItems")]
         public async Task<IEnumerable<FoodItemDto>> GetAllFoodItems()
         {
-            await Task.CompletedTask;
-            var foodItems = _foodItems.GetAllFoodItems();
+            var foodItems = await _foodItems.GetAllFoodItems();
             return foodItems.Select(f => new FoodItemDto(f));
         }
 
@@ -98,8 +97,7 @@ namespace InstantEatService.Controllers
         [HttpGet("foodItems/filteredByPrice")]
         public async Task<IEnumerable<FoodItemDto>> FilterByPrice(double min, double max)
         {
-            await Task.CompletedTask;
-            var foodItems = _foodService.FilterByPrice(min, max);
+            var foodItems = await _foodService.FilterByPrice(min, max);
             return foodItems.Select(f => new FoodItemDto(f));
         }
     }
