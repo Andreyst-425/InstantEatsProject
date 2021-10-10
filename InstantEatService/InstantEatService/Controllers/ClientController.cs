@@ -48,7 +48,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<ClientDto>> GetClient(Guid id)
+        public async Task<ActionResult<ClientDto>> GetClient(int id)
         {
             var client = await _clients.GetClient(id);
 
@@ -61,7 +61,7 @@ namespace InstantEatService.Controllers
         }
 
         
-        [HttpGet("{id}")]
+        [HttpGet("{phoneNumber}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -115,7 +115,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> PutClient(Guid id, [FromBody] ClientCreateDto clientCreateDto)
+        public async Task<ActionResult> PutClient(int id, [FromBody] ClientCreateDto clientCreateDto)
         {
             var isUpdated = await _clients.UpdateClient(id, clientCreateDto);
             return isUpdated ? Ok() : NotFound();
@@ -126,7 +126,7 @@ namespace InstantEatService.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteClient(Guid id)
+        public async Task<ActionResult> DeleteClient(int id)
         {
             var isDeleted = await _clients.DeleteClient(id);
             return isDeleted ? Ok() : NotFound();

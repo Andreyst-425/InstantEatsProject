@@ -7,6 +7,6 @@ namespace InstantEatService.Models
 {
     public class EntityBase
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace InstantEatService.Models
             return _db.Carts;
         }
 
-        public async Task<Cart> GetCart(Guid id)
+        public async Task<Cart> GetCart(int id)
         {
             Logging(nameof(GetCart),nameof(id));
 
@@ -46,24 +46,24 @@ namespace InstantEatService.Models
             return _db.Carts.FirstOrDefault(c => c.Id == id);
         }
 
-        public async Task<bool> DeleteCart(Guid id)
+        public async Task<bool> DeleteCart(int id)
         {
             Logging(nameof(DeleteCart), nameof(id));
 
             var cart = await GetCart(id);
-            cart.IsDeleted = true;
             cart.IsCanceled = true;
             await _db.SaveChangesAsync();
             await _db.DisposeAsync();
             return true;
         }
 
-        public async Task<bool> RestoreCart(Guid id)
+        public async Task<bool> RestoreCart(int id)
         {
             Logging(nameof(RestoreCart), nameof(id));
 
             var cart = await GetCart(id);
-            cart.IsDeleted = false;
+
+            _db.Remove(cart);
             await _db.SaveChangesAsync();
             await _db.DisposeAsync();
             return true;
@@ -75,7 +75,6 @@ namespace InstantEatService.Models
 
             var newCart = new Cart
             {
-                IsDeleted = cart.IsDeleted,
                 ClientId = cart.ClientId,
                 AddressForDelivery = cart.AddressForDelivery,
                 FoodItems = cart.FoodItems,
@@ -98,7 +97,7 @@ namespace InstantEatService.Models
             Logging(nameof(UpdateCart), nameof(cart));
 
             var updatingCart = await GetCart(cart.Id);
-            if (updatingCart == null || updatingCart.IsDeleted)
+            if (updatingCart == null)
                 return false;
             _db.Carts.Update(cart);
             await _db.SaveChangesAsync();

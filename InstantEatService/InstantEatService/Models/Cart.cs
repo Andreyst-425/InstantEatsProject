@@ -14,7 +14,7 @@ namespace InstantEatService.Models
         public bool IsCanceled { get; set; }
 
         public IEnumerable<FoodItem> FoodItems { get; set; }
-        public Guid ClientId { get; set; }
+        public int ClientId { get; set; }
         public Client Client { get; set; }
     }
 }

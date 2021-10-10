@@ -20,7 +20,7 @@ namespace InstantEatService.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<bool> DeleteFoodItem(Guid id);
+        Task<bool> DeleteFoodItem(int id);
 
        /// <summary>
        /// Очистка ресурсов
@@ -37,7 +37,7 @@ namespace InstantEatService.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<FoodItem> GetFoodItem(Guid id);
+        Task<FoodItem> GetFoodItem(int id);
 
         /// <summary>
         /// Обновить блюдо по id
@@ -45,6 +45,6 @@ namespace InstantEatService.Repositories
         /// <param name="id"></param>
         /// <param name="foodItemCreateDto"></param>
         /// <returns></returns>
-        Task<bool> UpdateFoodItem(Guid id, FoodItemCreateDto foodItemCreateDto);
+        Task<bool> UpdateFoodItem(int id, FoodItemCreateDto foodItemCreateDto);
     }
 }

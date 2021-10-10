@@ -8,11 +8,11 @@ namespace InstantEatService.Services
 {
     public interface ICartService
     {
-        Task<Cart> AddCart(DeliveryAddress address,Guid clientId, [FromBody] Client client);
-        Task<bool> DeleteCart(Guid id);
+        Task<Cart> AddCart(DeliveryAddress address, int clientId, [FromBody] Client client);
+        Task<bool> DeleteCart(int id);
 
         Task<List<FoodItem>> GetBisunessLunch();
-        Task<Cart> GetCart(Guid id);
+        Task<Cart> GetCart(int id);
         Task<IEnumerable<Cart>> GetCarts();
         Task<bool> UpdateCart(Cart cart);
         Task<List<Cart>> GetCurrentCarts();

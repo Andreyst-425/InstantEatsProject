@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace InstantEatService.Models
 {
-    public class DeliveryAddress
+    public class DeliveryAddress : EntityBase
     {
         public string Street { get; set; }
         public int HouseNumber { get; set; }

@@ -60,11 +60,11 @@ namespace InstantEatService.Repositories
         }
 
 
-        public async Task<Client> GetClient(Guid id)
+        public async Task<Client> GetClient(int id)
         {
             Logging(nameof(GetClient), nameof(id));
 
-            if (id == Guid.Empty)
+            if (id == 0)
                 throw new NullReferenceException($"{nameof(id)} is empty");
 
             return await _db.Clients.FirstOrDefaultAsync(c => c.Id == id);
@@ -87,14 +87,14 @@ namespace InstantEatService.Repositories
         }
 
 
-        public async Task<bool> UpdateClient(Guid id, ClientCreateDto clientCreateDto)
+        public async Task<bool> UpdateClient(int id, ClientCreateDto clientCreateDto)
         {
             Logging(nameof(UpdateClient), nameof(id), nameof(clientCreateDto));
 
             if (clientCreateDto == null)
                 throw new NullReferenceException($"{nameof(clientCreateDto)} param is null");
 
-            if (id == Guid.Empty)
+            if (id == 0)
                 throw new NullReferenceException($"{nameof(id)} is empty");
 
             var client = await GetClient(id);
@@ -132,11 +132,11 @@ namespace InstantEatService.Repositories
             return true;
         }
 
-        public async Task<bool> DeleteClient(Guid id)
+        public async Task<bool> DeleteClient(int id)
         {
             Logging(nameof(DeleteClient), nameof(id));
 
-            if (id == Guid.Empty)
+            if (id == 0)
                 throw new NullReferenceException($"{nameof(id)}  param is empty");
 
             var client = await GetClient(id);

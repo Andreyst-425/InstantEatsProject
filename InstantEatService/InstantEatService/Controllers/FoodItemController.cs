@@ -42,7 +42,7 @@ namespace InstantEatService.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<FoodItemDto>> GetFoodItem(Guid id)
+        public async Task<ActionResult<FoodItemDto>> GetFoodItem(int id)
         {
             var foodItem = await _foodItems.GetFoodItem(id);
 
@@ -70,7 +70,7 @@ namespace InstantEatService.Controllers
         /// <param name="foodItemCreateDto"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<ActionResult> PutFoodItem(Guid id, [FromBody] FoodItemCreateDto foodItemCreateDto )
+        public async Task<ActionResult> PutFoodItem(int id, [FromBody] FoodItemCreateDto foodItemCreateDto )
         {
             var isUpdated = await _foodItems.UpdateFoodItem(id, foodItemCreateDto);
             return isUpdated ? Ok() : NotFound();
@@ -82,7 +82,7 @@ namespace InstantEatService.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteFoodItem(Guid id)
+        public async Task<ActionResult> DeleteFoodItem(int id)
         {
             var isDeleted = await _foodItems.DeleteFoodItem(id);
             return isDeleted ? Ok() : NotFound();

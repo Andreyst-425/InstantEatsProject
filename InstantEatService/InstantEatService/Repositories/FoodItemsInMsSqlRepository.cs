@@ -40,11 +40,11 @@ namespace InstantEatService.Repositories
             return _db.FoodItems;
         }
 
-        public async Task<FoodItem> GetFoodItem(Guid id)
+        public async Task<FoodItem> GetFoodItem(int id)
         {
             Logging(nameof(GetFoodItem), nameof(id));
 
-            if (id == Guid.Empty)
+            if (id == 0)
                 throw new NullReferenceException($"{nameof(id)} is empty");
 
             return await _db.FoodItems.FirstOrDefaultAsync(c => c.Id == id);
@@ -66,13 +66,13 @@ namespace InstantEatService.Repositories
         }
 
 
-        public async Task<bool> UpdateFoodItem(Guid id, FoodItemCreateDto foodItemCreateDto)
+        public async Task<bool> UpdateFoodItem(int id, FoodItemCreateDto foodItemCreateDto)
         {
             Logging(nameof(UpdateFoodItem), nameof(id), nameof(foodItemCreateDto));
 
             if (foodItemCreateDto == null)
                 throw new NullReferenceException($"{nameof(foodItemCreateDto)} param is null");
-            if (id == Guid.Empty)
+            if (id == 0)
                 throw new NullReferenceException($"{nameof(id)} is empty");
 
             var foodItem = await GetFoodItem(id);
@@ -88,11 +88,11 @@ namespace InstantEatService.Repositories
             return true;
         }
 
-        public async Task<bool> DeleteFoodItem(Guid id)
+        public async Task<bool> DeleteFoodItem(int id)
         {
             Logging(nameof(DeleteFoodItem),nameof(id));
 
-            if (id == Guid.Empty)
+            if (id == 0)
                 throw new NullReferenceException($"{nameof(id)} param is empty");
 
             var foodItem = await GetFoodItem(id);
