@@ -32,5 +32,6 @@ namespace InstantEatService.Controllers
            
             return categories.Select(c => new CategoryDto(c));
         }
+
     }
 }

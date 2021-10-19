@@ -30,7 +30,13 @@ namespace InstantEatService.Repositories
         /// <summary>
         /// Получить список всех блюд
         /// </summary>
-        IEnumerable<FoodItem> GetAllFoodItems();
+        Task<IEnumerable<FoodItem>> GetAllFoodItems();
+
+        /// <summary>
+        /// Получить список всех блюд вместе с категориями
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<FoodItem>> GetAllFoodItemsWithCategories();
 
         /// <summary>
         /// Получить блюдо по id

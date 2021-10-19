@@ -34,13 +34,6 @@ namespace InstantEatService.Controllers
             return Ok(carts);
         }
 
-        [HttpGet("bussinessLunch")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<CartDto>>> GetBusinessLunch()
-        {
-            var businessLunch = await _carts.GetBisunessLunch();
-            return Ok();
-        }
 
         /// <summary>
         /// Получение корзины по идентификатору
@@ -95,9 +88,5 @@ namespace InstantEatService.Controllers
             if (isDeleted == false) return NotFound();
             return Ok();
         }
-
-
-
-
     }
 }

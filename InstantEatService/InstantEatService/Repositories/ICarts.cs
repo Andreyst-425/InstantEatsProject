@@ -10,7 +10,6 @@ namespace InstantEatService.Models
         Task<Cart> AddCart(Cart cart);
         Task<bool> DeleteCart(int id);
         Task<IEnumerable<Cart>> GetAllCarts();
-
         Task<Cart> GetCart(int id);
         Task<bool> RestoreCart(int id);
         Task<bool> UpdateCart(Cart cart);
