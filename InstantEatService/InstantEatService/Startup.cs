@@ -2,6 +2,7 @@ using InstantEatService.Repositories;
 using InstantEatService.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -69,6 +70,10 @@ namespace InstantEatService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World!");
+                //});
             });
         }
     }

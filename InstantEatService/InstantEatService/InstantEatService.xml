@@ -37,39 +37,39 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.ClientController.GetAllClients">
+        <member name="M:InstantEatService.Controllers.ClientsController.GetAllClients">
             <summary>
             Получить список всех клиентов
             </summary>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.ClientController.GetClient(System.Int32)">
+        <member name="M:InstantEatService.Controllers.ClientsController.GetClient(System.Int32)">
             <summary>
             Получить клиента по id
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.ClientController.PostClient">
+        <member name="M:InstantEatService.Controllers.ClientsController.PostClient">
             <summary>
             Создать клиента
             </summary>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.ClientController.PatchClientName">
+        <member name="M:InstantEatService.Controllers.ClientsController.PatchClientName">
             <summary>
             Изменить имя клиента
             </summary>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.ClientController.PutClient(System.Int32,InstantEatService.Dto.ClientCreateDto)">
+        <member name="M:InstantEatService.Controllers.ClientsController.PutClient(System.Int32,InstantEatService.Dto.ClientCreateDto)">
             <summary>
             Обновить информацию о клиенте по id
             </summary>
             <param name="id"></param>
             <param name="clientCreateDto"></param>
         </member>
-        <member name="M:InstantEatService.Controllers.ClientController.DeleteClient(System.Int32)">
+        <member name="M:InstantEatService.Controllers.ClientsController.DeleteClient(System.Int32)">
             <summary>
             Удалить клиента по id
             </summary>
@@ -79,43 +79,6 @@
             <summary>
             Получить список всех блюд
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.GetFoodItem(System.Int32)">
-            <summary>
-            Получить блюдо по id
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.PostFoodItem(InstantEatService.Dto.FoodItemCreateDto)">
-            <summary>
-            Создать новое блюдо
-            </summary>
-            <param name="foodItemCreateDto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.PutFoodItem(System.Int32,InstantEatService.Dto.FoodItemCreateDto)">
-            <summary>
-            Обновить блюдо по id
-            </summary>
-            <param name="id"></param>
-            <param name="foodItemCreateDto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.DeleteFoodItem(System.Int32)">
-            <summary>
-            Удалить блюдо по id 
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.FilterByPrice(System.Double,System.Double)">
-            <summary>
-            Фильтровать по цене
-            </summary>
-            <param name="min"></param>
-            <param name="max"></param>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Controllers.InstantEatJsonConroller.PostFoodItems">

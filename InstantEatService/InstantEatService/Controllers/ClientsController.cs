@@ -14,13 +14,13 @@ namespace InstantEatService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientController : ControllerBase
+    public class ClientsController : ControllerBase
     {
 
         private readonly IClientsRepository _clients;
         private readonly IClientService _clientService;
 
-        public ClientController(IClientsRepository clients, IClientService clientService)
+        public ClientsController(IClientsRepository clients, IClientService clientService)
         {
             _clients = clients;
             _clientService = clientService;
