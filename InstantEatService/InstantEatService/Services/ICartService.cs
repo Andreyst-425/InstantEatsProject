@@ -10,8 +10,6 @@ namespace InstantEatService.Services
     {
         Task<Cart> AddCart(DeliveryAddress address, int clientId, [FromBody] Client client);
         Task<bool> DeleteCart(int id);
-
-        Task<List<FoodItem>> GetBisunessLunch();
         Task<Cart> GetCart(int id);
         Task<IEnumerable<Cart>> GetCarts();
         Task<bool> UpdateCart(Cart cart);

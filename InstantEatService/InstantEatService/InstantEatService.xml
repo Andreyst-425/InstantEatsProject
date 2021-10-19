@@ -75,27 +75,38 @@
             </summary>
             <param name="id"></param>
         </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.GetAllFoodItems">
+        <member name="M:InstantEatService.Controllers.FoodItemController.GetAll">
             <summary>
             Получить список всех блюд
             </summary>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.GetFoodItem(System.Int32)">
+        <member name="M:InstantEatService.Controllers.FoodItemController.GetSoups">
             <summary>
-            Получить блюдо по id
+            Получить все блюда из категории супов
             </summary>
-            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.PostFoodItem(InstantEatService.Dto.FoodItemCreateDto)">
+        <member name="M:InstantEatService.Controllers.FoodItemController.GetSalades">
+            <summary>
+            Получить все блюда из категории салатов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.FoodItemController.GetBurgers">
+            <summary>
+            Получить все блюда из категории бургеров
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.FoodItemController.Add(InstantEatService.Dto.FoodItemCreateDto)">
             <summary>
             Создать новое блюдо
             </summary>
-            <param name="foodItemCreateDto"></param>
+            <param name="newItemInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.PutFoodItem(System.Int32,InstantEatService.Dto.FoodItemCreateDto)">
+        <member name="M:InstantEatService.Controllers.FoodItemController.Update(System.Int32,InstantEatService.Dto.FoodItemCreateDto)">
             <summary>
             Обновить блюдо по id
             </summary>
@@ -103,7 +114,7 @@
             <param name="foodItemCreateDto"></param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.DeleteFoodItem(System.Int32)">
+        <member name="M:InstantEatService.Controllers.FoodItemController.Delete(System.Int32)">
             <summary>
             Удалить блюдо по id 
             </summary>
@@ -183,6 +194,12 @@
             <summary>
             Получить список всех блюд
             </summary>
+        </member>
+        <member name="M:InstantEatService.Repositories.IFoodItemsRepository.GetAllFoodItemsWithCategories">
+            <summary>
+            Получить список всех блюд вместе с категориями
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:InstantEatService.Repositories.IFoodItemsRepository.GetFoodItem(System.Int32)">
             <summary>

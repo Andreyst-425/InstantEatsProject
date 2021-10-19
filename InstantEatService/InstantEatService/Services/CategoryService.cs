@@ -1,8 +1,6 @@
 ﻿using InstantEatService.Models;
 using InstantEatService.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace InstantEatService.Services
@@ -19,7 +17,6 @@ namespace InstantEatService.Services
 
         public async Task<IEnumerable<Category>> GetCategories()
         {
-            
             return await _category.GetAllCategories();
         }
     }
