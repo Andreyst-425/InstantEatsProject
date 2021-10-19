@@ -19,12 +19,5 @@ namespace InstantEatService.Services
         {
             return await _category.GetAllCategories();
         }
-
-        public async Task<List<FoodItem>> GetBisunessLunch()
-        {
-            await Task.CompletedTask;
-
-            return null;
-        }
     }
 }
