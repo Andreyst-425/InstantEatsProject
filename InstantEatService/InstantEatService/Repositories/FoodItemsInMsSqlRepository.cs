@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace InstantEatService.Repositories
@@ -35,9 +34,23 @@ namespace InstantEatService.Repositories
 
         public async Task<IEnumerable<FoodItem>> GetAllFoodItems()
         {
+            await Task.CompletedTask;
             Logging(nameof(GetAllFoodItems));
 
+            if(_db.FoodItems == null)
+                throw new NullReferenceException("database (foodItems) is empty");
+
             return _db.FoodItems;
+        }
+        public async Task<IEnumerable<FoodItem>> GetAllFoodItemsWithCategories()
+        {
+            await Task.CompletedTask;
+            Logging(nameof(GetAllFoodItems));
+
+            if (_db.FoodItems == null)
+                throw new NullReferenceException("database (foodItems) is empty");
+
+            return _db.FoodItems.Include(c=>c.Categories);
         }
 
         public async Task<FoodItem> GetFoodItem(int id)
@@ -72,6 +85,7 @@ namespace InstantEatService.Repositories
 
             if (foodItemCreateDto == null)
                 throw new NullReferenceException($"{nameof(foodItemCreateDto)} param is null");
+
             if (id == 0)
                 throw new NullReferenceException($"{nameof(id)} is empty");
 

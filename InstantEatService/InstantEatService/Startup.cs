@@ -1,19 +1,13 @@
+using InstantEatService.Models;
 using InstantEatService.Repositories;
 using InstantEatService.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace InstantEatService
 {
@@ -29,14 +23,17 @@ namespace InstantEatService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("Sqlite");
-            //services.AddDbContext<InstantEatDbContext>(options =>
-            //    options.UseSqlServer(connection));
-
+            var connection = Configuration.GetConnectionString("MsSql");
             services.AddDbContext<InstantEatDbContext>(options =>
-                options.UseSqlite(connection));
+                options.UseSqlServer(connection));
+
+            //services.AddDbContext<InstantEatDbContext>(options =>
+            //    options.UseSqlite(connection));
 
             services.AddScoped<IClientsRepository, ClientsInMsSqlRepository>();
+            services.AddScoped<ICarts, CartInMSSQLRepository>();
+            services.AddScoped<ICategoryRepository, CategoryInMSSQLRepository>();
+            services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IFoodItemsRepository, FoodItemsInMsSqlRepository>();
             services.AddScoped<IFoodItemsService, FoodItemsService>();
             services.AddScoped<IClientService, ClientService>();
