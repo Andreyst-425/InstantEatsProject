@@ -31,6 +31,13 @@
             <param name="cart"> Данные для обновления </param>
             <returns></returns>
         </member>
+        <member name="M:InstantEatService.Controllers.CartController.Delete(System.Int32)">
+            <summary>
+            Удалить карзину по id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:InstantEatService.Controllers.CategoryController.Get">
             <summary>
             Получение всех объектов Category
@@ -48,6 +55,13 @@
             Получить клиента по id
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.ClientsController.GetClientByPhoneNumber(System.String)">
+            <summary>
+            Получить данные о клиенте по номеру телефона
+            </summary>
+            <param name="phoneNumber"></param>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Controllers.ClientsController.PostClient">
@@ -83,20 +97,27 @@
         </member>
         <member name="M:InstantEatService.Controllers.FoodItemController.GetSoups">
             <summary>
-            Получить все блюда из категории супов
+            Получить все блюда из категории "супы"
             </summary>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Controllers.FoodItemController.GetSalades">
             <summary>
-            Получить все блюда из категории салатов
+            Получить все блюда из категории "салаты"
             </summary>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Controllers.FoodItemController.GetBurgers">
             <summary>
-            Получить все блюда из категории бургеров
+            Получить все блюда из категории "бургеры"
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Controllers.FoodItemController.Get(System.Int32)">
+            <summary>
+            Получить блюдо по id
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Controllers.FoodItemController.Add(InstantEatService.Dto.FoodItemCreateDto)">
@@ -171,6 +192,108 @@
             Ссылка на картинку
             </summary>
         </member>
+        <member name="M:InstantEatService.Models.ICarts.AddCart(InstantEatService.Models.Cart)">
+            <summary>
+            Добавить карзину
+            </summary>
+            <param name="cart"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Models.ICarts.DeleteCart(System.Int32)">
+            <summary>
+            Удалить карзину
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Models.ICarts.GetAllCarts">
+            <summary>
+            Получить список карзин
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Models.ICarts.GetCart(System.Int32)">
+            <summary>
+            Получить карзину по id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Models.ICarts.RestoreCart(System.Int32)">
+            <summary>
+            Отменить карзину - ??? хз кароче
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Models.ICarts.UpdateCart(InstantEatService.Models.Cart)">
+            <summary>
+            Изменить карзину
+            </summary>
+            <param name="cart"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Repositories.ICategoryRepository.GetAllCategories">
+            <summary>
+            Получить все категории
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Repositories.IClientsRepository.CreateClient(InstantEatService.Dto.ClientCreateDto)">
+            <summary>
+            Создать клиента
+            </summary>
+            <param name="clientCreateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Repositories.IClientsRepository.DeleteClient(System.Int32)">
+            <summary>
+            Удалить клиента
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Repositories.IClientsRepository.Dispose">
+            <summary>
+            Очистка ресурсов
+            </summary>
+        </member>
+        <member name="M:InstantEatService.Repositories.IClientsRepository.GetAllClients">
+            <summary>
+            Получить список клиентов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Repositories.IClientsRepository.GetClient(System.Int32)">
+            <summary>
+            Получить клиента по id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Repositories.IClientsRepository.GetClientByPhoneNumber(System.String)">
+            <summary>
+            Получить клиента по номеру телефона
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Repositories.IClientsRepository.UpdateClient(System.Int32,InstantEatService.Dto.ClientCreateDto)">
+            <summary>
+            Изменить денные о клиенте по id
+            </summary>
+            <param name="id"></param>
+            <param name="clientCreateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Repositories.IClientsRepository.UpdateClientName(System.String,System.String)">
+            <summary>
+            Изменить имя клиента по номеру телефона
+            </summary>
+            <param name="phoneNumber"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="M:InstantEatService.Repositories.IFoodItemsRepository.CreateFoodItem(InstantEatService.Dto.FoodItemCreateDto)">
             <summary>
             Создать блюдо
@@ -214,6 +337,196 @@
             </summary>
             <param name="id"></param>
             <param name="foodItemCreateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.ICartService.AddCart(InstantEatService.Models.DeliveryAddress,System.Int32,InstantEatService.Models.Client)">
+            <summary>
+            Добавить карзину
+            </summary>
+            <param name="address"></param>
+            <param name="clientId"></param>
+            <param name="client"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.ICartService.DeleteCart(System.Int32)">
+            <summary>
+            Удалить карзину
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.ICartService.GetCart(System.Int32)">
+            <summary>
+            Получить карзину по id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.ICartService.GetCarts">
+            <summary>
+            Получить список карзин
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.ICartService.UpdateCart(InstantEatService.Models.Cart)">
+            <summary>
+            Изменить информацию о карзине
+            </summary>
+            <param name="cart"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.ICartService.GetCurrentCarts">
+            <summary>
+            Получить текущие карзины - ??? тоже не очень понятно 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.ICategoryService.GetCategories">
+            <summary>
+            Получить категории
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IClientService.DeleteClient(System.Int32)">
+            <summary>
+            Удалить клиента
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IClientService.GetAllClients">
+            <summary>
+            Получить всех клиентов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IClientService.GetClient(System.Int32)">
+            <summary>
+            Получить клиента по id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IClientService.GetClientByPhoneNumber(System.String)">
+            <summary>
+            Получить клиента по номеру телефона
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IClientService.PatchClientName(System.String,System.String)">
+            <summary>
+            Изменить информацию о клиенте
+            </summary>
+            <param name="phoneNumber"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IClientService.PostClient(System.String)">
+            <summary>
+            Создать клиента
+            </summary>
+            <param name="phoneNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IClientService.UpdateClient(System.Int32,InstantEatService.Dto.ClientCreateDto)">
+            <summary>
+            Обновить данные о клиенте
+            </summary>
+            <param name="id"></param>
+            <param name="clientCreateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IClientService.UpdateClientName(System.String,System.String)">
+            <summary>
+            Изменить имя клиента
+            </summary>
+            <param name="phoneNumber"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.CreateFoodItem(InstantEatService.Dto.FoodItemCreateDto)">
+            <summary>
+            Создать блюдо
+            </summary>
+            <param name="foodItemCreateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.DeleteFoodItem(System.Int32)">
+            <summary>
+            Удалить блюдо
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.FilterByPrice(System.Double,System.Double)">
+            <summary>
+            Фильтр по цене
+            </summary>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.GetAll">
+            <summary>
+            Получить список всех блюд
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.GetAllBurgers">
+            <summary>
+            Получить список всех видов бургеров
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.GetAllSalades">
+            <summary>
+            Получить список всех видов салатов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.GetAllSoups">
+            <summary>
+            Получить список всех видов супов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.GetAllWithCategories">
+            <summary>
+            Получить все блюда одной категории
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.GetFoodItemById(System.Int32)">
+            <summary>
+            Получить блюдо по id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IFoodItemsService.UpdateFoodItem(System.Int32,InstantEatService.Dto.FoodItemCreateDto)">
+            <summary>
+            Обновить блюдо
+            </summary>
+            <param name="id"></param>
+            <param name="foodItemCreateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IJsonDataService.Dispose">
+            <summary>
+            Очистить данные 
+            </summary>
+        </member>
+        <member name="M:InstantEatService.Services.IJsonDataService.PostCategories">
+            <summary>
+            Полодить список категорий в БД
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:InstantEatService.Services.IJsonDataService.PostFoodItems">
+            <summary>
+            Положить список блюд в БД
+            </summary>
             <returns></returns>
         </member>
     </members>

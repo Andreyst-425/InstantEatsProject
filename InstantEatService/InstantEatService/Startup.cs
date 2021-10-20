@@ -38,7 +38,7 @@ namespace InstantEatService
             services.AddScoped<IFoodItemsService, FoodItemsService>();
             services.AddScoped<IClientService, ClientService>();
             services.AddScoped<IJsonDataService, InstantEatJsonDataService>();
-            services.AddScoped<IBusinessLunch, BusinessLunchService>();
+   
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -67,10 +67,6 @@ namespace InstantEatService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("Hello World!");
-                //});
             });
         }
     }

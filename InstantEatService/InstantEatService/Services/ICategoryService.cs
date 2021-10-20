@@ -6,6 +6,10 @@ namespace InstantEatService.Services
 {
     public interface ICategoryService
     {
+        /// <summary>
+        /// Получить категории
+        /// </summary>
+        /// <returns></returns>
         Task<IEnumerable<Category>> GetCategories();
     }
 }

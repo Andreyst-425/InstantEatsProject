@@ -17,12 +17,11 @@ namespace InstantEatService.Controllers
     public class ClientsController : ControllerBase
     {
 
-        private readonly IClientsRepository _clients;
+        
         private readonly IClientService _clientService;
 
-        public ClientsController(IClientsRepository clients, IClientService clientService)
+        public ClientsController(IClientService clientService)
         {
-            _clients = clients;
             _clientService = clientService;
         }
 
@@ -35,7 +34,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IEnumerable<ClientDto>> GetAllClients()
         {
-            var clients = await _clients.GetAllClients();
+            var clients = await _clientService.GetAllClients();
             return clients.Select(c => new ClientDto(c));
         }
 
@@ -50,7 +49,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ClientDto>> GetClient(int id)
         {
-            var client = await _clients.GetClient(id);
+            var client = await _clientService.GetClient(id);
 
             if(client == null)
             {
@@ -60,14 +59,18 @@ namespace InstantEatService.Controllers
             return Ok(new ClientDto(client));
         }
 
-        
+        /// <summary>
+        /// Получить данные о клиенте по номеру телефона
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
         [HttpGet("{phoneNumber}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ClientDto>> GetClientByPhoneNumber(string phoneNumber)
         {
-            var client = await _clients.GetClientByPhoneNumber(phoneNumber);
+            var client = await _clientService.GetClientByPhoneNumber(phoneNumber);
 
             if (client == null)
             {
@@ -101,7 +104,7 @@ namespace InstantEatService.Controllers
             var phoneNumber = Request.Query.FirstOrDefault(p => p.Key == "phoneNumber").Value;
             var name = Request.Query.FirstOrDefault(p => p.Key == "name").Value;
 
-            var isPacthed = await _clients.UpdateClientName(phoneNumber.ToString(), name.ToString());
+            var isPacthed = await _clientService.UpdateClientName(phoneNumber.ToString(), name.ToString());
 
             return isPacthed;
         }
@@ -117,7 +120,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> PutClient(int id, [FromBody] ClientCreateDto clientCreateDto)
         {
-            var isUpdated = await _clients.UpdateClient(id, clientCreateDto);
+            var isUpdated = await _clientService.UpdateClient(id, clientCreateDto);
             return isUpdated ? Ok() : NotFound();
         }
 
@@ -128,7 +131,7 @@ namespace InstantEatService.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteClient(int id)
         {
-            var isDeleted = await _clients.DeleteClient(id);
+            var isDeleted = await _clientService.DeleteClient(id);
             return isDeleted ? Ok() : NotFound();
         }
     }

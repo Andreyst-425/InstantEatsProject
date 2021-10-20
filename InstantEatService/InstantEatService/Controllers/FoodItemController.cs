@@ -33,7 +33,7 @@ namespace InstantEatService.Controllers
 
 
         /// <summary>
-        /// Получить все блюда из категории супов
+        /// Получить все блюда из категории "супы"
         /// </summary>
         /// <returns></returns>
         [HttpGet("foodItems/category/soup")]
@@ -44,7 +44,7 @@ namespace InstantEatService.Controllers
         }
 
         /// <summary>
-        /// Получить все блюда из категории салатов
+        /// Получить все блюда из категории "салаты"
         /// </summary>
         /// <returns></returns>
         [HttpGet("foodItems/category/salade")]
@@ -55,7 +55,7 @@ namespace InstantEatService.Controllers
         }
 
         /// <summary>
-        /// Получить все блюда из категории бургеров
+        /// Получить все блюда из категории "бургеры"
         /// </summary>
         /// <returns></returns>
         [HttpGet("foodItems/category/burger")]
@@ -65,6 +65,11 @@ namespace InstantEatService.Controllers
             return burgers.Select(f => new FoodItemDto(f));
         }
 
+        /// <summary>
+        /// Получить блюдо по id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<FoodItemDto>> Get(int id)
         {

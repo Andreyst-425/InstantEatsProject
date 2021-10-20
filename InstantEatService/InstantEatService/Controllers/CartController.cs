@@ -79,6 +79,11 @@ namespace InstantEatService.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Удалить карзину по id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -4,7 +4,7 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup>
-    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <ActiveDebugProfile>InstantEatService</ActiveDebugProfile>
     <NameOfLastUsedPublishProfile>C:\Users\andre\source\repos\GPO\InstantEatsProject\InstantEatService\InstantEatService\Properties\PublishProfiles\FolderProfile6.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
