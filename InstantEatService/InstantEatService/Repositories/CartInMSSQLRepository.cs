@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InstantEatService.Models
 {
-    public class CartInMSSQLRepository : ICarts
+    public class CartInMSSQLRepository : IDisposable, ICarts
     {
         private readonly InstantEatDbContext _db;
         private readonly ILogger<CartInMSSQLRepository> _logger;
@@ -53,7 +53,6 @@ namespace InstantEatService.Models
             var cart = await GetCart(id);
             cart.IsCanceled = true;
             await _db.SaveChangesAsync();
-            await _db.DisposeAsync();
             return true;
         }
 
@@ -65,7 +64,6 @@ namespace InstantEatService.Models
 
             _db.Remove(cart);
             await _db.SaveChangesAsync();
-            await _db.DisposeAsync();
             return true;
         }
 
@@ -85,10 +83,7 @@ namespace InstantEatService.Models
             };
 
             _db.Carts.Add(newCart);
-
             await _db.SaveChangesAsync();
-            await _db.DisposeAsync();
-
             return newCart;
         }
         
@@ -101,9 +96,12 @@ namespace InstantEatService.Models
                 return false;
             _db.Carts.Update(cart);
             await _db.SaveChangesAsync();
-            await _db.DisposeAsync();
             return true;
         }
 
+        public void Dispose()
+        {
+            _db.Dispose();
+        }
     }
 }

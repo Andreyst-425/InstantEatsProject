@@ -36,6 +36,34 @@ namespace InstantEatService.Services
             return await _clients.UpdateClientName(phoneNumber, name);
         }
 
+        public async Task<IEnumerable<Client>> GetAllClients()
+        {
+            return await _clients.GetAllClients();
+        }
 
+        public async Task<Client> GetClient(int id)
+        {
+            return await _clients.GetClient(id);
+        }
+
+        public async Task<Client> GetClientByPhoneNumber(string number)
+        {
+            return await _clients.GetClientByPhoneNumber(number);
+        }
+
+        public async Task<bool> UpdateClientName(string phoneNumber, string name)
+        {
+            return await _clients.UpdateClientName(phoneNumber, name);
+        }
+
+        public async Task<bool> DeleteClient(int id)
+        {
+            return await _clients.DeleteClient(id);
+        }
+
+        public async Task<bool> UpdateClient(int id, ClientCreateDto clientCreateDto)
+        {
+            return await _clients.UpdateClient(id, clientCreateDto);
+        }
     }
 }

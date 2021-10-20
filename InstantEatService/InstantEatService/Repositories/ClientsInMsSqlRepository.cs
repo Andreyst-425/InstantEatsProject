@@ -27,23 +27,6 @@ namespace InstantEatService.Repositories
         {
             _logger.LogTrace($"{methodName}({param1}, {param2}) is worked out");
         }
-        
-
-        //xml if ti is public
-        // or comments everywhere
-
-
-        //Servers взаимодействие с клиентомы
-        //взаимодейстиве с бд
-        //useServer patterns
-        //Защита по уровням
-        //Защита по функциональности
-        //обзаор программ связанный с доставкой еды 
-        //выюор стека технологии (обзор)
-        // прикинуть нагрузку на бд и вырать бд например или какой либо сервис
-
-        // method Assert(strExp)
-        // method Log()
 
         public ClientsInMsSqlRepository(InstantEatDbContext db, ILogger<ClientsInMsSqlRepository> logger)
         {
