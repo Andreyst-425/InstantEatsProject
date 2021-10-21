@@ -23,12 +23,12 @@ namespace InstantEatService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("MsSql");
-            services.AddDbContext<InstantEatDbContext>(options =>
-                options.UseSqlServer(connection));
-
+            var connection = Configuration.GetConnectionString("Sqlite");
             //services.AddDbContext<InstantEatDbContext>(options =>
-            //    options.UseSqlite(connection));
+            //    options.UseSqlServer(connection));
+
+            services.AddDbContext<InstantEatDbContext>(options =>
+                options.UseSqlite(connection));
 
             services.AddScoped<IClientsRepository, ClientsInMsSqlRepository>();
             services.AddScoped<ICarts, CartInMSSQLRepository>();
