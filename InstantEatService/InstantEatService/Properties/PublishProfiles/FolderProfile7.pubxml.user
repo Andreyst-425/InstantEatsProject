@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\andre\Desktop</_PublishTargetUrl>
+    <History>True|2021-10-20T11:37:32.0001587Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Sqlite">
+      <Value>DataSource=C:\inetpub\wwwroot\Data\InstantEat.db</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
