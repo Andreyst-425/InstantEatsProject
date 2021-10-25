@@ -10,7 +10,7 @@ namespace InstantEatService.Services
         /// <summary>
         /// Удалить клиента
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор клиента </param>
         /// <returns></returns>
         Task<bool> DeleteClient(int id);
 
@@ -23,45 +23,45 @@ namespace InstantEatService.Services
         /// <summary>
         /// Получить клиента по id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор клиента </param>
         /// <returns></returns>
         Task<Client> GetClient(int id);
 
         /// <summary>
         /// Получить клиента по номеру телефона
         /// </summary>
-        /// <param name="number"></param>
+        /// <param name="number"> Номер телефона </param>
         /// <returns></returns>
         Task<Client> GetClientByPhoneNumber(string number);
 
         /// <summary>
         /// Изменить информацию о клиенте
         /// </summary>
-        /// <param name="phoneNumber"></param>
-        /// <param name="name"></param>
+        /// <param name="phoneNumber"> Номер телефона </param>
+        /// <param name="name"> Имя клиента </param>
         /// <returns></returns>
-        Task<bool> PatchClientName(string phoneNumber, string name);
+        Task<bool> EditClientName(string phoneNumber, string name);
 
         /// <summary>
         /// Создать клиента
         /// </summary>
-        /// <param name="phoneNumber"></param>
+        /// <param name="phoneNumber"> Номер телефона </param>
         /// <returns></returns>
-        Task<bool> PostClient(string phoneNumber);
+        Task<bool> AddClient(string phoneNumber);
 
         /// <summary>
         /// Обновить данные о клиенте
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="clientCreateDto"></param>
+        /// <param name="id"> Идентификатор клиента </param>
+        /// <param name="clientCreateDto"> Данные для обновления </param>
         /// <returns></returns>
         Task<bool> UpdateClient(int id, ClientCreateDto clientCreateDto);
 
         /// <summary>
         /// Изменить имя клиента
         /// </summary>
-        /// <param name="phoneNumber"></param>
-        /// <param name="name"></param>
+        /// <param name="phoneNumber"> Номер телефона </param>
+        /// <param name="name"> Новое имя клиента </param>
         /// <returns></returns>
         Task<bool> UpdateClientName(string phoneNumber, string name);
     }

@@ -1,18 +1,16 @@
 ﻿using InstantEatService.Models;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace InstantEatService.Repositories
 {
-    public class CategoryInMSSQLRepository : ICategoryRepository
+    public class CategoriesInMSSQLRepository : ICategoriesRepository
     {
         private readonly InstantEatDbContext _db;
-        private readonly ILogger<CategoryInMSSQLRepository> _logger;
+        private readonly ILogger<CategoriesInMSSQLRepository> _logger;
 
-        public CategoryInMSSQLRepository(InstantEatDbContext db, ILogger<CategoryInMSSQLRepository> logger)
+        public CategoriesInMSSQLRepository(InstantEatDbContext db, ILogger<CategoriesInMSSQLRepository> logger)
         {
             _db = db;
             _logger = logger;
@@ -20,14 +18,13 @@ namespace InstantEatService.Repositories
 
         private void Logging(string methodName)
         {
-            _logger.LogTrace($"{methodName}is worked out");
+            _logger.LogTrace($"{methodName}is worked out (CartsInMSSQLRepository)");
         }
 
         public async Task<IEnumerable<Category>> GetAllCategories()
         {
             await Task.CompletedTask;
             Logging(nameof(GetAllCategories));
-
             return _db.Categories;
         }
 

@@ -9,46 +9,45 @@ namespace InstantEatService.Services
     public interface ICartService
     {
         /// <summary>
-        /// Добавить карзину
+        /// Добавить корзину
         /// </summary>
-        /// <param name="address"></param>
-        /// <param name="clientId"></param>
-        /// <param name="client"></param>
+        /// <param name="address"> Адрес доставки </param>
+        /// <param name="clientId"> Идентификатор клиента </param>
+        /// <param name="client"> Информация о клиенте </param>
         /// <returns></returns>
         Task<Cart> AddCart(DeliveryAddress address, int clientId, [FromBody] Client client);
 
         /// <summary>
-        /// Удалить карзину
+        /// Удалить корзину
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор корзины </param>
         /// <returns></returns>
         Task<bool> DeleteCart(int id);
 
         /// <summary>
-        /// Получить карзину по id
+        /// Получить корзину по id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор корзины </param>
         /// <returns></returns>
         Task<Cart> GetCart(int id);
 
         /// <summary>
-        /// Получить список карзин
+        /// Получить список корзин
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<Cart>> GetCarts();
 
         /// <summary>
-        /// Изменить информацию о карзине
+        /// Изменить информацию о корзине
         /// </summary>
-        /// <param name="cart"></param>
+        /// <param name="cart"> Информация для обновления </param>
         /// <returns></returns>
         Task<bool> UpdateCart(Cart cart);
 
         /// <summary>
-        /// Получить текущие карзины - ??? тоже не очень понятно 
+        /// Получить все открытые корзины (действующие в данный момент)
         /// </summary>
         /// <returns></returns>
         Task<List<Cart>> GetCurrentCarts();
-
     }
 }

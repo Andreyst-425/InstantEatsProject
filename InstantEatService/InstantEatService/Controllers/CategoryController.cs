@@ -1,7 +1,6 @@
 ﻿using InstantEatService.Dto;
 using InstantEatService.Services;
 using Microsoft.AspNetCore.Http;
-//using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +28,7 @@ namespace InstantEatService.Controllers
         public async Task<IEnumerable<CategoryDto>> Get()
         {
             var categories = await _categories.GetCategories();
-           
             return categories.Select(c => new CategoryDto(c));
         }
-
     }
 }

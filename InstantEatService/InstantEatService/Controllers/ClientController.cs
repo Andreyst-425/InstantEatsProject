@@ -1,10 +1,7 @@
 ﻿using InstantEatService.Dto;
-using InstantEatService.Models;
-using InstantEatService.Repositories;
 using InstantEatService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,13 +11,11 @@ namespace InstantEatService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientsController : ControllerBase
+    public class ClientController : ControllerBase
     {
-
-        
         private readonly IClientService _clientService;
 
-        public ClientsController(IClientService clientService)
+        public ClientController(IClientService clientService)
         {
             _clientService = clientService;
         }
@@ -32,7 +27,7 @@ namespace InstantEatService.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IEnumerable<ClientDto>> GetAllClients()
+        public async Task<IEnumerable<ClientDto>> GetAll()
         {
             var clients = await _clientService.GetAllClients();
             return clients.Select(c => new ClientDto(c));
@@ -41,28 +36,26 @@ namespace InstantEatService.Controllers
         /// <summary>
         /// Получить клиента по id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> идентификатор клиента </param>
         /// <returns></returns>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<ClientDto>> GetClient(int id)
+        public async Task<ActionResult<ClientDto>> GetClientById(int id)
         {
             var client = await _clientService.GetClient(id);
-
-            if(client == null)
+            if (client == null)
             {
                 return NotFound();
             }
-
             return Ok(new ClientDto(client));
         }
 
         /// <summary>
-        /// Получить данные о клиенте по номеру телефона
+        /// Получить клиента по номеру телефона
         /// </summary>
-        /// <param name="phoneNumber"></param>
+        /// <param name="phoneNumber"> номер телефона клиента </param>
         /// <returns></returns>
         [HttpGet("{phoneNumber}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -71,7 +64,6 @@ namespace InstantEatService.Controllers
         public async Task<ActionResult<ClientDto>> GetClientByPhoneNumber(string phoneNumber)
         {
             var client = await _clientService.GetClientByPhoneNumber(phoneNumber);
-
             if (client == null)
             {
                 return NotFound();
@@ -85,13 +77,13 @@ namespace InstantEatService.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<bool> PostClient()
+        public async Task<bool> AddClient()
         {
             var phoneNumber = Request.Query.FirstOrDefault(p => p.Key == "phoneNumber").Value;
 
-            var isPosted = await _clientService.PostClient(phoneNumber.ToString());
+            var isAdded = await _clientService.AddClient(phoneNumber.ToString());
 
-            return isPosted;
+            return isAdded;
         }
         
         /// <summary>
@@ -99,7 +91,7 @@ namespace InstantEatService.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPatch]
-        public async Task<bool> PatchClientName()
+        public async Task<bool> EditClientName()
         {
             var phoneNumber = Request.Query.FirstOrDefault(p => p.Key == "phoneNumber").Value;
             var name = Request.Query.FirstOrDefault(p => p.Key == "name").Value;
@@ -112,13 +104,13 @@ namespace InstantEatService.Controllers
         /// <summary>
         /// Обновить информацию о клиенте по id
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="clientCreateDto"></param>
+        /// <param name="id"> идентификатор клиента </param>
+        /// <param name="clientCreateDto"> новая информация о клиенте </param>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> PutClient(int id, [FromBody] ClientCreateDto clientCreateDto)
+        public async Task<ActionResult> UpdateClient(int id, [FromBody] ClientCreateDto clientCreateDto)
         {
             var isUpdated = await _clientService.UpdateClient(id, clientCreateDto);
             return isUpdated ? Ok() : NotFound();
@@ -127,8 +119,10 @@ namespace InstantEatService.Controllers
         /// <summary>
         /// Удалить клиента по id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> идентификатор клиента </param>
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> DeleteClient(int id)
         {
             var isDeleted = await _clientService.DeleteClient(id);

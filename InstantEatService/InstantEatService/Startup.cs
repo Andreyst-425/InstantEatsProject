@@ -31,8 +31,8 @@ namespace InstantEatService
                 options.UseSqlite(connection));
 
             services.AddScoped<IClientsRepository, ClientsInMsSqlRepository>();
-            services.AddScoped<ICarts, CartInMSSQLRepository>();
-            services.AddScoped<ICategoryRepository, CategoryInMSSQLRepository>();
+            services.AddScoped<ICartsRepository, CartsInMSSQLRepository>();
+            services.AddScoped<ICategoriesRepository, CategoriesInMSSQLRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IFoodItemsRepository, FoodItemsInMsSqlRepository>();
             services.AddScoped<IFoodItemsService, FoodItemsService>();

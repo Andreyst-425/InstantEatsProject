@@ -1,6 +1,5 @@
 ﻿using InstantEatService.Dto;
 using InstantEatService.Models;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,14 +10,14 @@ namespace InstantEatService.Repositories
         /// <summary>
         /// Создать блюдо
         /// </summary>
-        /// <param name="foodItemCreateDto"></param>
+        /// <param name="foodItemCreateDto"> Данные для создания </param>
         /// <returns></returns>
         Task<FoodItem> CreateFoodItem(FoodItemCreateDto foodItemCreateDto);
 
         /// <summary>
         /// Удалить блюдо по id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор блюда </param>
         /// <returns></returns>
         Task<bool> DeleteFoodItem(int id);
 
@@ -41,15 +40,15 @@ namespace InstantEatService.Repositories
         /// <summary>
         /// Получить блюдо по id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор блюда </param>
         /// <returns></returns>
         Task<FoodItem> GetFoodItem(int id);
 
         /// <summary>
         /// Обновить блюдо по id
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="foodItemCreateDto"></param>
+        /// <param name="id"> Идентификатор блюда </param>
+        /// <param name="foodItemCreateDto"> Данные для обновления </param>
         /// <returns></returns>
         Task<bool> UpdateFoodItem(int id, FoodItemCreateDto foodItemCreateDto);
     }

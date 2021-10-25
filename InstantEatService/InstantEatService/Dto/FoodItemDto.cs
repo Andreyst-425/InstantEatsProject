@@ -8,9 +8,24 @@ namespace InstantEatService.Dto
 {
     public class FoodItemDto
     {
+        /// <summary>
+        /// Название
+        /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Цена
+        /// </summary>
         public double? Price { get; set; }
+
+        /// <summary>
+        /// Описание
+        /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// Ссылка на картинку
+        /// </summary>
         public string PictureUrl { get; set; }
 
         public FoodItemDto(FoodItem foodItem)

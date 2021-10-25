@@ -21,15 +21,23 @@ namespace InstantEatService.Repositories
 
         private void Logging(string methodName)
         {
-            _logger.LogTrace($"{methodName}is worked out");
+            _logger.LogTrace($"{methodName}is worked out (FoodItemsInMSSQLRepository)");
         }
         private void Logging(string methodName, string param)
         {
-            _logger.LogTrace($"{methodName}({param})is worked out");
+            _logger.LogTrace($"{methodName}({param})is worked out (FoodItemsInMSSQLRepository)");
         }
         private void Logging(string methodName, string param1, string param2)
         {
-            _logger.LogTrace($"{methodName}({param1}, {param2}) is worked out");
+            _logger.LogTrace($"{methodName}({param1}, {param2}) is worked out (FoodItemsInMSSQLRepository)");
+        }
+        private void ThrowException(string paramName)
+        {
+            throw new NullReferenceException($"{nameof(paramName)} is empty or null");
+        }
+        private void ThrowException()
+        {
+            throw new NullReferenceException($"database (foodItems) is empty or null");
         }
 
         public async Task<IEnumerable<FoodItem>> GetAllFoodItems()
@@ -37,8 +45,7 @@ namespace InstantEatService.Repositories
             await Task.CompletedTask;
             Logging(nameof(GetAllFoodItems));
 
-            if(_db.FoodItems == null)
-                throw new NullReferenceException("database (foodItems) is empty");
+            if (_db.FoodItems == null) ThrowException();
 
             return _db.FoodItems;
         }
@@ -47,8 +54,7 @@ namespace InstantEatService.Repositories
             await Task.CompletedTask;
             Logging(nameof(GetAllFoodItems));
 
-            if (_db.FoodItems == null)
-                throw new NullReferenceException("database (foodItems) is empty");
+            if (_db.FoodItems == null) ThrowException();
 
             return _db.FoodItems.Include(c=>c.Categories);
         }
@@ -57,9 +63,7 @@ namespace InstantEatService.Repositories
         {
             Logging(nameof(GetFoodItem), nameof(id));
 
-            if (id == 0)
-                throw new NullReferenceException($"{nameof(id)} is empty");
-
+            if (id == 0) ThrowException(nameof(id));
             return await _db.FoodItems.FirstOrDefaultAsync(c => c.Id == id);
         }
 
@@ -68,13 +72,12 @@ namespace InstantEatService.Repositories
         {
             Logging(nameof(CreateFoodItem), nameof(foodItemCreateDto));
 
-            if (foodItemCreateDto == null)
-                throw new NullReferenceException($"{nameof(foodItemCreateDto)} param is null");
+            if (foodItemCreateDto == null) ThrowException(nameof(foodItemCreateDto));
+
             var newFoodItem = foodItemCreateDto.ToEntity();
 
             await _db.FoodItems.AddAsync(newFoodItem);
             await _db.SaveChangesAsync();
-
             return newFoodItem;
         }
 
@@ -83,11 +86,8 @@ namespace InstantEatService.Repositories
         {
             Logging(nameof(UpdateFoodItem), nameof(id), nameof(foodItemCreateDto));
 
-            if (foodItemCreateDto == null)
-                throw new NullReferenceException($"{nameof(foodItemCreateDto)} param is null");
-
-            if (id == 0)
-                throw new NullReferenceException($"{nameof(id)} is empty");
+            if (foodItemCreateDto == null) ThrowException(nameof(foodItemCreateDto));
+            if (id == 0) ThrowException(nameof(id));
 
             var foodItem = await GetFoodItem(id);
             if (foodItem == null) return false;
@@ -106,13 +106,10 @@ namespace InstantEatService.Repositories
         {
             Logging(nameof(DeleteFoodItem),nameof(id));
 
-            if (id == 0)
-                throw new NullReferenceException($"{nameof(id)} param is empty");
+            if (id == 0) ThrowException(nameof(id));
 
             var foodItem = await GetFoodItem(id);
-
             if (foodItem == null) return false;
-
             _db.Remove(foodItem);
             await _db.SaveChangesAsync();
 
