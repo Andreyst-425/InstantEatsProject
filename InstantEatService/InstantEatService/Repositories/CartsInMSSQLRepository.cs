@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace InstantEatService.Models
 {
-    public class CartInMSSQLRepository : IDisposable, ICarts
+    public class CartsInMSSQLRepository : IDisposable, ICartsRepository
     {
         private readonly InstantEatDbContext _db;
-        private readonly ILogger<CartInMSSQLRepository> _logger;
+        private readonly ILogger<CartsInMSSQLRepository> _logger;
 
-        public CartInMSSQLRepository(InstantEatDbContext db, ILogger<CartInMSSQLRepository> logger)
+        public CartsInMSSQLRepository(InstantEatDbContext db, ILogger<CartsInMSSQLRepository> logger)
         {
             _db = db;
             _logger = logger;
@@ -19,21 +19,18 @@ namespace InstantEatService.Models
 
         private void Logging(string methodName)
         {
-            var method = methodName;
-            _logger.LogTrace($"{method}is worked out");
+            _logger.LogTrace($"{methodName}is worked out (CartsInMSSQLRepository)");
         }
 
         private void Logging(string methodName, string param)
         {
-            var method = methodName;
-            _logger.LogTrace($"{method}({param})is worked out");
+            _logger.LogTrace($"{methodName}({param})is worked out  (CartsInMSSQLRepository)");
 
         }
 
         public async Task<IEnumerable<Cart>> GetAllCarts()
         {
             Logging(nameof(GetAllCarts));
-
             await Task.CompletedTask;
             return _db.Carts;
         }
@@ -41,7 +38,6 @@ namespace InstantEatService.Models
         public async Task<Cart> GetCart(int id)
         {
             Logging(nameof(GetCart),nameof(id));
-
             await Task.CompletedTask;
             return _db.Carts.FirstOrDefault(c => c.Id == id);
         }
@@ -61,7 +57,6 @@ namespace InstantEatService.Models
             Logging(nameof(RestoreCart), nameof(id));
 
             var cart = await GetCart(id);
-
             _db.Remove(cart);
             await _db.SaveChangesAsync();
             return true;
@@ -92,8 +87,7 @@ namespace InstantEatService.Models
             Logging(nameof(UpdateCart), nameof(cart));
 
             var updatingCart = await GetCart(cart.Id);
-            if (updatingCart == null)
-                return false;
+            if (updatingCart == null) return false;
             _db.Carts.Update(cart);
             await _db.SaveChangesAsync();
             return true;

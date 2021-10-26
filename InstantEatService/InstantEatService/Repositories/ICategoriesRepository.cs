@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace InstantEatService.Repositories
 {
-    public interface ICategoryRepository
+    public interface ICategoriesRepository
     {
         /// <summary>
         /// Получить все категории

@@ -12,7 +12,6 @@ namespace InstantEatService.Controllers
     public class InstantEatJsonConroller : ControllerBase
     {
         private readonly IJsonDataService _jsonDataService;
-
         public InstantEatJsonConroller(IJsonDataService jsonDataService)
         {
             _jsonDataService = jsonDataService;
@@ -26,10 +25,8 @@ namespace InstantEatService.Controllers
         public async Task<bool> PostFoodItems()
         {
             var isPosted = await _jsonDataService.PostFoodItems();
-
             return isPosted;
         }
-
 
         /// <summary>
         /// Положить categories в БД (имя файла должно быть categories.json)
@@ -39,9 +36,7 @@ namespace InstantEatService.Controllers
         public async Task<bool> PostCategories()
         {
             var isPosted = await _jsonDataService.PostCategories();
-
             return isPosted;
         }
-
     }
 }

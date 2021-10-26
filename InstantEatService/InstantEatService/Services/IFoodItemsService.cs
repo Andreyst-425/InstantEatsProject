@@ -10,22 +10,22 @@ namespace InstantEatService.Services
         /// <summary>
         /// Создать блюдо
         /// </summary>
-        /// <param name="foodItemCreateDto"></param>
+        /// <param name="foodItemCreateDto"> Данные для создания блюда </param>
         /// <returns></returns>
         Task<FoodItem> CreateFoodItem(FoodItemCreateDto foodItemCreateDto);
 
         /// <summary>
         /// Удалить блюдо
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор блюда </param>
         /// <returns></returns>
         Task<bool> DeleteFoodItem(int id);
 
         /// <summary>
         /// Фильтр по цене
         /// </summary>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
+        /// <param name="min"> Минимальная цена </param>
+        /// <param name="max"> Максимальная цена </param>
         /// <returns></returns>
         Task<IEnumerable<FoodItem>> FilterByPrice(double min, double max);
 
@@ -36,25 +36,25 @@ namespace InstantEatService.Services
         Task<List<FoodItem>> GetAll();
 
         /// <summary>
-        /// Получить список всех видов бургеров
+        /// Получить список всех бургеров
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<FoodItem>> GetAllBurgers();
 
         /// <summary>
-        /// Получить список всех видов салатов
+        /// Получить список всех салатов
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<FoodItem>> GetAllSalades();
 
         /// <summary>
-        /// Получить список всех видов супов
+        /// Получить список всех супов
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<FoodItem>> GetAllSoups();
 
         /// <summary>
-        /// Получить все блюда одной категории
+        /// Получить все блюда вместе с их категориями
         /// </summary>
         /// <returns></returns>
         Task<List<FoodItem>> GetAllWithCategories();
@@ -69,8 +69,8 @@ namespace InstantEatService.Services
         /// <summary>
         /// Обновить блюдо
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="foodItemCreateDto"></param>
+        /// <param name="id"> Идентификатор блюда </param>
+        /// <param name="foodItemCreateDto"> Информация для обновления </param>
         /// <returns></returns>
         Task<bool> UpdateFoodItem(int id, FoodItemCreateDto foodItemCreateDto);
     }

@@ -5,46 +5,46 @@ using System.Threading.Tasks;
 
 namespace InstantEatService.Models
 {
-    public interface ICarts
+    public interface ICartsRepository
     {
         /// <summary>
-        /// Добавить карзину
+        /// Добавить корзину
         /// </summary>
-        /// <param name="cart"></param>
+        /// <param name="cart"> Данные для добавления корзины </param>
         /// <returns></returns>
         Task<Cart> AddCart(Cart cart);
 
         /// <summary>
-        /// Удалить карзину
+        /// Удалить корзину
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор корзины </param>
         /// <returns></returns>
         Task<bool> DeleteCart(int id);
 
         /// <summary>
-        /// Получить список карзин
+        /// Получить все корзины
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<Cart>> GetAllCarts();
 
         /// <summary>
-        /// Получить карзину по id
+        /// Получить корзину по id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор корзины </param>
         /// <returns></returns>
         Task<Cart> GetCart(int id);
 
         /// <summary>
-        /// Отменить карзину - ??? хз кароче
+        /// Восстановить корзину (по логике названия)
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Идентификатор корзины </param>
         /// <returns></returns>
         Task<bool> RestoreCart(int id);
 
         /// <summary>
-        /// Изменить карзину
+        /// Изменить корзину
         /// </summary>
-        /// <param name="cart"></param>
+        /// <param name="cart"> Данные для изменения корзины </param>
         /// <returns></returns>
         Task<bool> UpdateCart(Cart cart);
     }

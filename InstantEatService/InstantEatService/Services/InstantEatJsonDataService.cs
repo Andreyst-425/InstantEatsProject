@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace InstantEatService.Services
@@ -30,21 +29,14 @@ namespace InstantEatService.Services
             try
             {
                 var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _config["Tables:foodItems"]);
-
                 var jsonString = File.ReadAllText(path);
-
                 var foodItems = JsonConvert.DeserializeObject<List<FoodItem>>(jsonString);
-
-
                 foreach (var foodItem in foodItems)
                 {
                     await _db.FoodItems.AddAsync(foodItem);
                 }
-
                 await _db.SaveChangesAsync();
-
                 File.Delete(path);
-
                 _logger.LogInformation("Data have been added successfully");
                 return true;
             }
@@ -65,21 +57,14 @@ namespace InstantEatService.Services
             try
             {
                 var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _config["Tables:categories"]);
-
                 var jsonString = File.ReadAllText(path);
-
                 var categories = JsonConvert.DeserializeObject<List<Category>>(jsonString);
-
-
                 foreach (var foodItem in categories)
                 {
                     await _db.Categories.AddAsync(foodItem);
                 }
-
                 await _db.SaveChangesAsync();
-
                 File.Delete(path);
-
                 return true;
             }
             catch
