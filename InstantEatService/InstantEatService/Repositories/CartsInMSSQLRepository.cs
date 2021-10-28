@@ -47,6 +47,7 @@ namespace InstantEatService.Models
             Logging(nameof(DeleteCart), nameof(id));
 
             var cart = await GetCart(id);
+            if (cart == null) return false;
             cart.IsCanceled = true;
             await _db.SaveChangesAsync();
             return true;
