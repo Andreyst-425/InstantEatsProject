@@ -47,7 +47,7 @@ namespace InstantEatService.Services
         /// </summary>
         /// <param name="phoneNumber"> Номер телефона </param>
         /// <returns></returns>
-        Task<bool> AddClient(string phoneNumber);
+        Task<bool> AddClient(ClientCreateDto clientCreateDto);
 
         /// <summary>
         /// Обновить данные о клиенте
@@ -64,5 +64,12 @@ namespace InstantEatService.Services
         /// <param name="name"> Новое имя клиента </param>
         /// <returns></returns>
         Task<bool> UpdateClientName(string phoneNumber, string name);
+
+        /// <summary>
+        /// Проверить наличие клиента в базе 
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
+        Task<bool> CheckClientOnExistance(string phoneNumber);
     }
 }

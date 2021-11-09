@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InstantEatService.Migrations
 {
     [DbContext(typeof(InstantEatDbContext))]
-    [Migration("20211009090447_Add table 'Categories'")]
-    partial class AddtableCategories
+    [Migration("20211109050623_AddEmailFieldIntoClientTable")]
+    partial class AddEmailFieldIntoClientTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -102,6 +102,9 @@ namespace InstantEatService.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");

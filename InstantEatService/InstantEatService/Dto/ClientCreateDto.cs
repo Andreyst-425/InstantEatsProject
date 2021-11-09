@@ -14,12 +14,19 @@ namespace InstantEatService.Dto
         /// </summary>
         public string PhoneNumber { get; set; }
 
+        /// <summary>
+        /// Почта
+        /// </summary>
+        /// <returns></returns>
+        public string Email { get; set; }
+
         public Client ToEntity()
         {
             return new Client()
             {
                 Name = Name,
                 PhoneNumber = PhoneNumber,
+                Email = Email,
             };
         }
     }

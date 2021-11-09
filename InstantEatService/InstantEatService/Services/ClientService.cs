@@ -27,20 +27,16 @@ namespace InstantEatService.Services
             _logger.LogTrace($"{methodName}({param})is worked out (ClientService)");
         }
 
-        private void Logging(string methodName, string param1,string param2)
+        private void Logging(string methodName, string param1, string param2)
         {
             _logger.LogTrace($"{methodName}({param1},{param2})is worked out (ClientService)");
         }
 
-        public async Task<bool> AddClient(string phoneNumber)
+        public async Task<bool> AddClient(ClientCreateDto clientCreateDto)
         {
-            Logging(nameof(AddClient), nameof(phoneNumber));
-            var client = await _clients.GetClientByPhoneNumber(phoneNumber);
+            Logging(nameof(AddClient), nameof(clientCreateDto));
+            var client = await _clients.GetClientByPhoneNumber(clientCreateDto.PhoneNumber);
             if (client != null) return false;
-            var clientCreateDto = new ClientCreateDto { 
-                PhoneNumber = phoneNumber, 
-                Name = null 
-            };
             await _clients.CreateClient(clientCreateDto);
             return true;
         }
@@ -85,6 +81,14 @@ namespace InstantEatService.Services
         {
             Logging(nameof(UpdateClient), nameof(id),nameof(clientCreateDto));
             return await _clients.UpdateClient(id, clientCreateDto);
+        }
+
+        public async Task<bool> CheckClientOnExistance(string phoneNumber)
+        {
+            Logging(nameof(CheckClientOnExistance), nameof(phoneNumber));
+            var client = await _clients.GetClientByPhoneNumber(phoneNumber);
+            if (client == null) return false;
+            return true;
         }
     }
 }

@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace InstantEatService.Controllers
 {
-    public class CategoryController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CategoryController : ControllerBase
     {
         private readonly InstantEatDbContext _db;
         private readonly ICategoryService _categories;

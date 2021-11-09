@@ -24,7 +24,7 @@ namespace InstantEatService.Controllers
         /// Получить список всех клиентов
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("getAll")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IEnumerable<ClientDto>> GetAll()
@@ -38,7 +38,7 @@ namespace InstantEatService.Controllers
         /// </summary>
         /// <param name="id"> идентификатор клиента </param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("clients/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -72,16 +72,27 @@ namespace InstantEatService.Controllers
             return Ok(new ClientDto(client));
         }
 
+
+        /// <summary>
+        /// Проверить клиента на наличие
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
+        [HttpGet("checkExistClientResponse")]
+        public async Task<bool> CheckClientOnExistance(string phoneNumber)
+        {
+            var isExisted = await _clientService.CheckClientOnExistance(phoneNumber);
+            return isExisted;
+        }
+
         /// <summary>
         /// Создать клиента
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
-        public async Task<bool> AddClient()
+        [HttpPost("post")]
+        public async Task<bool> AddClient([FromBody] ClientCreateDto clientCreateDto)
         {
-            var phoneNumber = Request.Query.FirstOrDefault(p => p.Key == "phoneNumber").Value;
-
-            var isAdded = await _clientService.AddClient(phoneNumber.ToString());
+            var isAdded = await _clientService.AddClient(clientCreateDto);
 
             return isAdded;
         }
