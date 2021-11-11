@@ -5,7 +5,31 @@
     <projectFile profileName="InstantEatService">InstantEatService/InstantEatService.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7647f9e4-642f-459c-a218-3f17e4b6338f" name="Changes" comment="" />
+    <list default="true" id="7647f9e4-642f-459c-a218-3f17e4b6338f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.InstantEatService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InstantEatService/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/Repository/CartsInMSSQLRepositoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/Repository/CartsInMSSQLRepositoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/CoverletSourceRootsMapping" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/CoverletSourceRootsMapping" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.Tests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.Tests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.Tests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/nunit_random_seed.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/nunit_random_seed.tmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/ref/InstantEatService.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/ref/InstantEatService.Tests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/ref/InstantEatService.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/ref/InstantEatService.Tests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/InstantEatService.Tests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/InstantEatService.Tests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService/Repositories/CartsInMSSQLRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService/Repositories/CartsInMSSQLRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService/Repositories/ClientsInMsSqlRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService/Repositories/ClientsInMsSqlRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService/Repositories/IClientsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService/Repositories/IClientsRepository.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +91,9 @@
       <option name="presentableId" value="Default" />
       <updated>1635387124183</updated>
       <workItem from="1635387135649" duration="18000" />
+      <workItem from="1635739343071" duration="5000" />
+      <workItem from="1635757028482" duration="793000" />
+      <workItem from="1636597796135" duration="46000" />
     </task>
     <servers />
   </component>
@@ -74,7 +101,7 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

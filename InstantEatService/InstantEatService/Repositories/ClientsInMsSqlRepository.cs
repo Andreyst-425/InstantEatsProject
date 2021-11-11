@@ -37,12 +37,12 @@ namespace InstantEatService.Repositories
             _logger = logger;
         }
 
-        public async Task<IEnumerable<Client>> GetAllClients()
+        public async Task<List<Client>> GetAllClients()
         {
             await Task.CompletedTask;
             Logging(nameof(GetAllClients));
 
-            return _db.Clients;
+            return _db.Clients.ToList();
         }
 
         public async Task<Client> GetClient(int id)

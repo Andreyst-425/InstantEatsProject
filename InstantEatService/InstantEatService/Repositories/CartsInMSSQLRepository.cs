@@ -58,7 +58,8 @@ namespace InstantEatService.Models
             Logging(nameof(RestoreCart), nameof(id));
 
             var cart = await GetCart(id);
-            _db.Remove(cart);
+            if (cart == null) return false;
+            cart.IsCanceled = true;
             await _db.SaveChangesAsync();
             return true;
         }
@@ -83,11 +84,11 @@ namespace InstantEatService.Models
             return newCart;
         }
         
-        public async Task<bool> UpdateCart(Cart cart)
+        public async Task<bool> UpdateCart(Cart cart,int id)
         {
             Logging(nameof(UpdateCart), nameof(cart));
 
-            var updatingCart = await GetCart(cart.Id);
+            var updatingCart = await GetCart(id);
             if (updatingCart == null) return false;
             _db.Carts.Update(cart);
             await _db.SaveChangesAsync();

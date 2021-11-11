@@ -46,6 +46,6 @@ namespace InstantEatService.Models
         /// </summary>
         /// <param name="cart"> Данные для изменения корзины </param>
         /// <returns></returns>
-        Task<bool> UpdateCart(Cart cart);
+        Task<bool> UpdateCart(Cart cart,int id);
     }
 }

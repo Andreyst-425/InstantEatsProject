@@ -78,7 +78,7 @@ namespace InstantEatService.Services
         public async Task<bool> UpdateCart(Cart cart)
         {
             Logging(nameof(UpdateCart), nameof(cart));
-            return await _carts.UpdateCart(cart);
+            return await _carts.UpdateCart(cart,cart.Id);
         }
     }
 }

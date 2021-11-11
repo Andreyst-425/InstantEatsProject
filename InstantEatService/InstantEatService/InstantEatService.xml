@@ -276,7 +276,7 @@
             <param name="id"> Идентификатор корзины </param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Models.ICartsRepository.UpdateCart(InstantEatService.Models.Cart)">
+        <member name="M:InstantEatService.Models.ICartsRepository.UpdateCart(InstantEatService.Models.Cart,System.Int32)">
             <summary>
             Изменить корзину
             </summary>
@@ -423,6 +423,7 @@
             Изменить информацию о корзине
             </summary>
             <param name="cart"> Информация для обновления </param>
+            <param name="id"> Идентификатор корзины </param>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Services.ICartService.GetCurrentCarts">
