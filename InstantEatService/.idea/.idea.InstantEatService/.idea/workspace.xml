@@ -5,14 +5,14 @@
     <projectFile profileName="InstantEatService">InstantEatService/InstantEatService.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7647f9e4-642f-459c-a218-3f17e4b6338f" name="Changes" comment="">
+    <list default="true" id="7647f9e4-642f-459c-a218-3f17e4b6338f" name="Changes" comment="тесты (не работают проверки на исключения, обещаю разобратьсяс этой неприятностью)">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InstantEatService/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InstantEatService/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/Repository/CartsInMSSQLRepositoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/Repository/CartsInMSSQLRepositoryTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/CoverletSourceRootsMapping" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/CoverletSourceRootsMapping" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.Tests.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.Tests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.Tests.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.dll" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.xml" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/InstantEatService.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/nunit_random_seed.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/nunit_random_seed.tmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/ref/InstantEatService.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/bin/Debug/net5.0/ref/InstantEatService.Tests.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/Debug/net5.0/InstantEatService.Tests.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
@@ -26,9 +26,9 @@
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/InstantEatService.Tests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/InstantEatService.Tests.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstantEatService/Repositories/CartsInMSSQLRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService/Repositories/CartsInMSSQLRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstantEatService/Repositories/ClientsInMsSqlRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService/Repositories/ClientsInMsSqlRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstantEatService/Repositories/IClientsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService/Repositories/IClientsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.Tests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.Tests/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstantEatService/InstantEatService.xml" beforeDir="false" afterPath="$PROJECT_DIR$/InstantEatService/InstantEatService.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +38,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/user/source/repos/InstantEatsProject/InstantEatService/InstantEatService/Services/CartService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/source/repos/InstantEatsProject/InstantEatService/InstantEatService/Services/FoodItemsService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/source/repos/InstantEatsProject/InstantEatService/InstantEatService/Services/IFoodItemsService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/source/repos/InstantEatsProject/InstantEatService/InstantEatService/Repositories/ICartsRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cb6b23b5581d4ab798055b57b3fd8d8674e00/9/Assert.Exceptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/source/repos/InstantEatsProject/InstantEatService/InstantEatService.Tests/Repository/CartsInMSSQLRepositoryTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/source/repos/InstantEatsProject/InstantEatService/InstantEatService/Controllers/FoodItemController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/source/repos/InstantEatsProject/InstantEatService/InstantEatService/Repositories/CartsInMSSQLRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/source/repos/InstantEatsProject/InstantEatService/InstantEatService/Services/ICartService.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="207EF0myqRVHT0KfFrd5q6602oY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -45,9 +64,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3498452" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.InstantEatService">
@@ -94,7 +116,23 @@
       <workItem from="1635739343071" duration="5000" />
       <workItem from="1635757028482" duration="793000" />
       <workItem from="1636597796135" duration="46000" />
+      <workItem from="1637280457517" duration="18733000" />
     </task>
+    <task id="LOCAL-00001" summary="немного переписала методы">
+      <created>1637543225046</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1637543225046</updated>
+    </task>
+    <task id="LOCAL-00002" summary="тесты (не работают проверки на исключения, обещаю разобратьсяс этой неприятностью)">
+      <created>1637543263323</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1637543263323</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,7 +141,46 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="немного переписала методы" />
+    <MESSAGE value="тесты (не работают проверки на исключения, обещаю разобратьсяс этой неприятностью)" />
+    <option name="LAST_COMMIT_MESSAGE" value="тесты (не работают проверки на исключения, обещаю разобратьсяс этой неприятностью)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="System.NullReferenceException" isInternal="false" displayValue="NullReferenceException" namespaceName="System">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/InstantEatService.Tests/Repository/FoodItemsInMSSQLRepositoryTests.cs</url>
+          <line>362</line>
+          <properties documentPath="C:\Users\user\source\repos\InstantEatsProject\InstantEatService\InstantEatService.Tests\Repository\FoodItemsInMSSQLRepositoryTests.cs" initialLine="362" containingFunctionPresentation="method 'DeleteFoodItem_NullId_ThrowException'">
+            <startOffsets>
+              <option value="12815" />
+            </startOffsets>
+            <endOffsets>
+              <option value="12893" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
