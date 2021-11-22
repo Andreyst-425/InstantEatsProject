@@ -1,24 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=06f92f5e_002Dffbd_002D4f81_002Da8dc_002Db031fc40cb9a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="UpdateCart_ExistingCartData_ReturnsTrue" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Repository.CartsInMSSQLRepositoryTests.UpdateCart_ExistingCartData_ReturnsTrue&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.CartServiceTests.GetCart_ExistingId_Cart&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.CartServiceTests.GetCurrentCarts_Carts&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.CartServiceTests.AddCart_CartInfo_NewCart&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.CartServiceTests.DeleteCart_CartId_ReturnsTrue&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.CartServiceTests.UpdateCart_CartInfo_ReturnsTrue&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.FoodItemsServiceTests.GetAll_FoodItems&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.FoodItemsServiceTests.GetFoodItemById_Id_FoodItem&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.FoodItemsServiceTests.GetAllWithCategories_FoodItems&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.FoodItemsServiceTests.CreateFoodItem_CreateDto_FoodItem&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.FoodItemsServiceTests.UpdateFoodItem_FoodItemInfo_ReturnsTrue&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.FoodItemsServiceTests.DeleteFoodItem_Id_ReturnsTrue&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.FoodItemsServiceTests.FilterByPrice_PriceLimits_FoodItems&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.FoodItemsServiceTests.GetFooditemsByCategory_Category_FoodUtems&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Service.FoodItemsServiceTests&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Repository.CartsInMSSQLRepositoryTests.DeleteCart_ExistingCartId_ReturnsTrue&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-    &lt;ProjectFolder&gt;AD4CD970-54C5-4CDA-B8B9-DC017A30DF53/d:Repository&lt;/ProjectFolder&gt;&#xD;
-  &lt;/Or&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::AD4CD970-54C5-4CDA-B8B9-DC017A30DF53::net5.0::InstantEatService.Tests.Repository.CartsInMSSQLRepositoryTests.UpdateCart_ExistingCartData_ReturnsTrue&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

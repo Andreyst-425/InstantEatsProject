@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\InstantEatService.Tests.csproj": {}
+    "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\InstantEatService.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\InstantEatService.Tests.csproj": {
+    "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\InstantEatService.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\InstantEatService.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\InstantEatService.Tests.csproj",
         "projectName": "InstantEatService.Tests",
-        "projectPath": "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\InstantEatService.Tests.csproj",
+        "projectPath": "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\InstantEatService.Tests.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\obj\\",
+        "outputPath": "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj": {
-                "projectPath": "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj"
+              "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj": {
+                "projectPath": "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj"
               }
             }
           }
@@ -83,9 +83,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -94,14 +91,14 @@
         }
       }
     },
-    "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj": {
+    "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj",
         "projectName": "InstantEatService",
-        "projectPath": "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj",
+        "projectPath": "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\InstantEatService.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\obj\\",
+        "outputPath": "C:\\Users\\user\\Source\\Repos\\InstantEatsProject\\InstantEatService\\InstantEatService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
