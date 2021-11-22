@@ -36,22 +36,11 @@ namespace InstantEatService.Services
         Task<List<FoodItem>> GetAll();
 
         /// <summary>
-        /// Получить список всех бургеров
+        /// Получить список всех блюд какой-либо категории
         /// </summary>
+        /// <param name="category"> категория </param>
         /// <returns></returns>
-        Task<IEnumerable<FoodItem>> GetAllBurgers();
-
-        /// <summary>
-        /// Получить список всех салатов
-        /// </summary>
-        /// <returns></returns>
-        Task<IEnumerable<FoodItem>> GetAllSalades();
-
-        /// <summary>
-        /// Получить список всех супов
-        /// </summary>
-        /// <returns></returns>
-        Task<IEnumerable<FoodItem>> GetAllSoups();
+        Task<IEnumerable<FoodItem>> GetFoodItemsByCategory(string category);
 
         /// <summary>
         /// Получить все блюда вместе с их категориями

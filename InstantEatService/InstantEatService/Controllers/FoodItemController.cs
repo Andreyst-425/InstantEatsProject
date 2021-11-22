@@ -40,7 +40,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IEnumerable<FoodItemDto>> GetSoups()
         {
-            var soups = await _foodService.GetAllSoups();
+            var soups = await _foodService.GetFoodItemsByCategory("Супы");
             return soups.Select(f => new FoodItemDto(f));
         }
 
@@ -53,7 +53,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IEnumerable<FoodItemDto>> GetSalades()
         {
-            var salades = await _foodService.GetAllSalades();
+            var salades = await _foodService.GetFoodItemsByCategory("Салаты");
             return salades.Select(f => new FoodItemDto(f));
         }
 
@@ -66,7 +66,7 @@ namespace InstantEatService.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IEnumerable<FoodItemDto>> GetBurgers()
         {
-            var burgers = await _foodService.GetAllBurgers();
+            var burgers = await _foodService.GetFoodItemsByCategory("Бургеры");
             return burgers.Select(f => new FoodItemDto(f));
         }
 

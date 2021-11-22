@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InstantEatService.Models;
 
-namespace InstantEatService.Models
+namespace InstantEatService.Repositories
 {
     public class CartsInMSSQLRepository : IDisposable, ICartsRepository
     {

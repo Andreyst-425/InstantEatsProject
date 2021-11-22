@@ -81,27 +81,13 @@ namespace InstantEatService.Services
             return foodItems.Where(f => f.Price > min && f.Price < max);
         }
 
-        public async Task<IEnumerable<FoodItem>> GetAllSoups()
+        public async Task<IEnumerable<FoodItem>> GetFoodItemsByCategory(string category)
         {
-            Logging(nameof(GetAllSoups));
-            var soup = await GetAllWithCategories();
-            var result = soup.Where(s => s.Categories.Select(c => c.Name).First() == "Супы");
+            Logging(nameof(GetFoodItemsByCategory));
+            var foodItems = await GetAllWithCategories();
+            var result = foodItems.Where(s => s.Categories.Select(c => c.Name).First() == category);
             return result;
         }
 
-        public async Task<IEnumerable<FoodItem>> GetAllSalades()
-        {
-            Logging(nameof(GetAllSalades));
-            var salades = await GetAllWithCategories();
-            var result = salades.Where(s => s.Categories.Select(c => c.Name).First() == "Салаты");
-            return result;
-        }
-        public async Task<IEnumerable<FoodItem>> GetAllBurgers()
-        {
-            Logging(nameof(GetAllBurgers));
-            var burger = await GetAllWithCategories();
-            var result = burger.Where(s => s.Categories.Select(c => c.Name).First() == "Бургеры");
-            return result;
-        }
     }
 }

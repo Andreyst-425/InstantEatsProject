@@ -41,7 +41,6 @@ namespace InstantEatService.Services
         /// Изменить информацию о корзине
         /// </summary>
         /// <param name="cart"> Информация для обновления </param>
-        /// <param name="id"> Идентификатор корзины </param>
         /// <returns></returns>
         Task<bool> UpdateCart(Cart cart);
 

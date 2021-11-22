@@ -1,9 +1,9 @@
 ﻿using InstantEatService.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InstantEatService.Repositories;
 
 namespace InstantEatService.Services
 {
@@ -50,7 +50,7 @@ namespace InstantEatService.Services
             return carts.Where(c=>c.IsCanceled == false).ToList();
         }
 
-        public async Task<Cart> AddCart(DeliveryAddress address, int clientId, [FromBody] Client client)
+        public async Task<Cart> AddCart(DeliveryAddress address, int clientId, Client client)
         {
             Logging(nameof(AddCart), nameof(address),nameof(clientId),nameof(client));
             var newCart = new Cart
@@ -65,7 +65,6 @@ namespace InstantEatService.Services
             };
 
             newCart.Client = client;
-
             return await _carts.AddCart(newCart);
         }
 

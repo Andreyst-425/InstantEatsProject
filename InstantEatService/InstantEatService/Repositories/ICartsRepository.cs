@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InstantEatService.Models;
 
-namespace InstantEatService.Models
+namespace InstantEatService.Repositories
 {
     public interface ICartsRepository
     {
@@ -45,6 +46,7 @@ namespace InstantEatService.Models
         /// Изменить корзину
         /// </summary>
         /// <param name="cart"> Данные для изменения корзины </param>
+        /// <param name="id"> Идентфиикатор корзины</param>
         /// <returns></returns>
         Task<bool> UpdateCart(Cart cart,int id);
     }
