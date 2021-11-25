@@ -1,4 +1,5 @@
-﻿using InstantEatService.Dto;
+﻿using System;
+using InstantEatService.Dto;
 using InstantEatService.Models;
 using InstantEatService.Repositories;
 using Microsoft.Extensions.Logging;
@@ -50,6 +51,8 @@ namespace InstantEatService.Services
         {
             Logging(nameof(GetFoodItemById), nameof(id));
             var item = await _foodItems.GetFoodItem(id);
+            if (item == null)
+                throw new NullReferenceException("is null or empty.");
             return item;
         }
 

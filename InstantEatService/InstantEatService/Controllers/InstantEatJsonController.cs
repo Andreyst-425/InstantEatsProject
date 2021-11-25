@@ -9,10 +9,10 @@ namespace InstantEatService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InstantEatJsonConroller : ControllerBase
+    public class InstantEatJsonController : ControllerBase
     {
         private readonly IJsonDataService _jsonDataService;
-        public InstantEatJsonConroller(IJsonDataService jsonDataService)
+        public InstantEatJsonController(IJsonDataService jsonDataService)
         {
             _jsonDataService = jsonDataService;
         }

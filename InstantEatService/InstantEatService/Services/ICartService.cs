@@ -15,7 +15,7 @@ namespace InstantEatService.Services
         /// <param name="clientId"> Идентификатор клиента </param>
         /// <param name="client"> Информация о клиенте </param>
         /// <returns></returns>
-        Task<Cart> AddCart(DeliveryAddress address, int clientId, [FromBody] Client client);
+        Task<bool> AddCart(DeliveryAddress address, int clientId, [FromBody] Client client);
 
         /// <summary>
         /// Удалить корзину

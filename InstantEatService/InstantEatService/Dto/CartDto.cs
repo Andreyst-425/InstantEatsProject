@@ -25,5 +25,6 @@ namespace InstantEatService.Dto
             AddressForDelivery = cart.AddressForDelivery;
         }
 
+
     }
 }

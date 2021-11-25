@@ -172,41 +172,24 @@ namespace InstantEatService.Tests.Service
             });
         }
 
+        //чета блять не знаю даже
+        //ну и хуйня
         [Test]
-        public async Task AddCart_CartInfo_NewCart()
+        public async Task AddCart_CartInfo_ReturnsTrue()
         {
             //arrange
             var mockRepository = new Mock<ICartsRepository>();
             var mockLogger = new Mock<ILogger<CartService>>();
             var logger = mockLogger.Object;
             var expected = await GetNewCart();
-            var expectedTask = GetNewCart();
             var address = GetAddressInfo();
             var client = GetClientInfo();
-            mockRepository.Setup(m => m.AddCart(expected)).Returns(expectedTask);
+            mockRepository.Setup(m => m.AddCart(expected)).Returns(GetNewCart());
             var cartService = new CartService(mockRepository.Object, logger);
             //act
             var actual = await cartService.AddCart(address, client.Id, client);
             //arrange
-            Assert.IsNotNull(actual);
-            Assert.Multiple(() =>
-            {
-                Assert.AreEqual(expected.ClientId, actual.ClientId);
-
-                var expectedClient = expected.Client;
-                var actualClient = actual.Client;
-                Assert.AreEqual(expectedClient.Name,actualClient.Name);
-                Assert.AreEqual(expectedClient.PhoneNumber,actualClient.PhoneNumber);
-                Assert.AreEqual(expectedClient.Id,actualClient.Id);
-
-                var expectedAddress = expected.AddressForDelivery;
-                var actualAddress = actual.AddressForDelivery;
-                Assert.AreEqual(expectedAddress.Floor,actualAddress.Floor);
-                Assert.AreEqual(expectedAddress.Street,actualAddress.Street);
-                Assert.AreEqual(expectedAddress.FlatNumber,actualAddress.FlatNumber);
-                Assert.AreEqual(expectedAddress.HouseNumber,actualAddress.HouseNumber);
-                Assert.AreEqual(expectedAddress.Id,actualAddress.Id); 
-            });
+            Assert.IsTrue(actual);
         }
 
         [Test]

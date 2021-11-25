@@ -56,5 +56,11 @@ namespace InstantEatService.Tests.Repository
                 }
             });
         }
+
+        [Test]
+        public async Task GetClient_Id_Client()
+        {
+            
+        }
     }
 }

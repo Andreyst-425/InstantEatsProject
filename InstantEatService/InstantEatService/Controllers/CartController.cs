@@ -4,6 +4,7 @@ using InstantEatService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace InstantEatService.Controllers
@@ -27,10 +28,16 @@ namespace InstantEatService.Controllers
         /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<CartDto>>> Get()
+        public async Task<List<CartDto>> Get()
         {
-            var carts = await _carts.GetCarts();
-            return Ok(carts);
+            var cartsIEnumerable = await _carts.GetCarts();
+            var carts = cartsIEnumerable.ToList();
+            var cartsCreateDto = new List<CartDto>();
+            foreach (var cart in carts)
+            {
+                cartsCreateDto.Add(new CartDto(cart));
+            }
+            return cartsCreateDto;
         }
 
 
@@ -42,11 +49,11 @@ namespace InstantEatService.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<CartDto>> Get(int id)
+        public async Task<CartDto> Get(int id)
         {
             var cart = await _carts.GetCart(id);
-            if (cart == null) return NotFound();
-            return Ok(cart);
+            if (cart == null) return null;
+            return new CartDto(cart);
         }
 
         /// <summary>
@@ -56,11 +63,11 @@ namespace InstantEatService.Controllers
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<CartDto>> Add([FromBody] Cart cart)
+        public async Task<bool> Add([FromBody] Cart cart)
         {
-            var newCart = await _carts.AddCart(cart.AddressForDelivery, cart.ClientId, cart.Client);
+            var isAdded = await _carts.AddCart(cart.AddressForDelivery, cart.ClientId, cart.Client);
 
-            return Ok(new CartDto(newCart));
+            return isAdded;
         }
 
         /// <summary>
@@ -71,11 +78,10 @@ namespace InstantEatService.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<bool>> Update([FromBody] Cart cart)
+        public async Task<bool> Update([FromBody] Cart cart)
         {
             var updatedCart = await _carts.UpdateCart(cart);
-            if (updatedCart == false) return NotFound();
-            return Ok();
+            return updatedCart;
         }
 
         /// <summary>
@@ -86,11 +92,10 @@ namespace InstantEatService.Controllers
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<bool>> Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             var isDeleted = await _carts.DeleteCart(id);
-            if (isDeleted == false) return NotFound();
-            return Ok();
+            return isDeleted;
         }
     }
 }

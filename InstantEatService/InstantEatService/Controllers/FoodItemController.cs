@@ -32,55 +32,29 @@ namespace InstantEatService.Controllers
         }
 
         /// <summary>
-        /// Получить все блюда из категории "Супы"
+        /// Получить все блюда из заданной категории 
         /// </summary>
         /// <returns></returns>
-        [HttpGet("foodItems/category/soup")]
+        [HttpGet("foodItems/category")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IEnumerable<FoodItemDto>> GetSoups()
+        public async Task<List<FoodItemDto>> GetFoodItemByCategory(string category)
         {
-            var soups = await _foodService.GetFoodItemsByCategory("Супы");
-            return soups.Select(f => new FoodItemDto(f));
+            var foodItems = await _foodService.GetFoodItemsByCategory(category);
+            return foodItems.Select(f => new FoodItemDto(f)).ToList();
         }
-
-        /// <summary>
-        /// Получить все блюда из категории "Салаты"
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("foodItems/category/salade")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IEnumerable<FoodItemDto>> GetSalades()
-        {
-            var salades = await _foodService.GetFoodItemsByCategory("Салаты");
-            return salades.Select(f => new FoodItemDto(f));
-        }
-
-        /// <summary>
-        /// Получить все блюда из категории "Бургеры"
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("foodItems/category/burger")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IEnumerable<FoodItemDto>> GetBurgers()
-        {
-            var burgers = await _foodService.GetFoodItemsByCategory("Бургеры");
-            return burgers.Select(f => new FoodItemDto(f));
-        }
-
+        
         /// <summary>
         /// Получить блюдо по id
         /// </summary>
         /// <param name="id"> идентификатор блюда </param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<FoodItemDto>> GetById(int id)
+        public async Task<FoodItemDto> GetById(int id)
         {
+            //проверка на null добавлена в сервис
             var foodItem = await _foodService.GetFoodItemById(id);
-            if (foodItem == null) return NotFound();
-            return Ok(new FoodItemDto(foodItem));
+            return new FoodItemDto(foodItem);
         }
 
         /// <summary>
@@ -89,10 +63,10 @@ namespace InstantEatService.Controllers
         /// <param name="newItemInfo"> информация о блюде </param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult<FoodItemDto>> Add([FromBody] FoodItemCreateDto newItemInfo)
+        public async Task<FoodItemDto> Add([FromBody] FoodItemCreateDto newItemInfo)
         {
             var foodItem = await _foodService.CreateFoodItem(newItemInfo);
-            return Ok(new FoodItemDto(foodItem));
+            return new FoodItemDto(foodItem);
         }
 
         /// <summary>
@@ -102,10 +76,10 @@ namespace InstantEatService.Controllers
         /// <param name="foodItemCreateDto"> новая информация о блюде </param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, [FromBody] FoodItemCreateDto foodItemCreateDto )
+        public async Task<bool> Update(int id, [FromBody] FoodItemCreateDto foodItemCreateDto )
         {
             var isUpdated = await _foodService.UpdateFoodItem(id, foodItemCreateDto);
-            return isUpdated ? Ok() : NotFound();
+            return isUpdated;
         }
 
         /// <summary>
@@ -114,10 +88,10 @@ namespace InstantEatService.Controllers
         /// <param name="id"> идентификатор блюда </param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             var isDeleted = await _foodService.DeleteFoodItem(id);
-            return isDeleted ? Ok() : NotFound();
+            return isDeleted;
         }
 
         /// <summary>

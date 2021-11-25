@@ -42,7 +42,7 @@ namespace InstantEatService.Services
             }
             catch
             {
-                _logger.LogWarning($"The exeption was captured in {function}()." +
+                _logger.LogWarning($"The exception was captured in {function}()." +
                     $" Check correctness of configuration or JASON data.");
                 return false;
             }

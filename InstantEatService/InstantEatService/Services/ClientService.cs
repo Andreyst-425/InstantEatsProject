@@ -1,4 +1,5 @@
-﻿using InstantEatService.Dto;
+﻿using System;
+using InstantEatService.Dto;
 using InstantEatService.Models;
 using InstantEatService.Repositories;
 using Microsoft.Extensions.Logging;
@@ -60,13 +61,19 @@ namespace InstantEatService.Services
         public async Task<Client> GetClient(int id)
         {
             Logging(nameof(GetClient), nameof(id));
-            return await _clients.GetClient(id);
+            var client = await _clients.GetClient(id);
+            if (client == null)
+                throw new NullReferenceException($" is empty or null");
+            return client;
         }
 
         public async Task<Client> GetClientByPhoneNumber(string number)
         {
             Logging(nameof(GetClientByPhoneNumber), nameof(number));
-            return await _clients.GetClientByPhoneNumber(number);
+            var client = await _clients.GetClientByPhoneNumber(number);
+            if (client == null)
+                throw new NullReferenceException($" is empty or null");
+            return client;
         }
 
         public async Task<bool> UpdateClientName(string phoneNumber, string name)

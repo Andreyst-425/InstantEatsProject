@@ -24,6 +24,3 @@ namespace InstantEatService.Dto
         }
     }
 }
-
-
-//Patch 
