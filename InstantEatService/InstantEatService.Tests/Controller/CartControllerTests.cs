@@ -83,7 +83,7 @@ namespace InstantEatService.Tests.Controller
             return listCartDto;
         }
         
-        [Test]
+        [Test(Description = "Метод Get должен вернуть список всех корзин")]
         public async Task Get_CartDtoList()
         {
             //arrange
@@ -118,7 +118,7 @@ namespace InstantEatService.Tests.Controller
         }
 
         //id
-        [Test]
+        [Test(Description = "Метод Get должен вернуть корзину по её идентификатору")]
         public async Task Get_CartDto()
         {
             //arrange
@@ -151,7 +151,7 @@ namespace InstantEatService.Tests.Controller
         }
 
         //я ебала это добавление крч, пускай и дальше не работает, надоело
-        [Test]
+        [Test(Description = "Метод Add должен добавить новую корзину и вернуть true")]
         public async Task Add_Cart_ReturnsTrue()
         {
             //arrange
@@ -167,7 +167,7 @@ namespace InstantEatService.Tests.Controller
             Assert.IsTrue(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод Update должен вернуть true")]
         public async Task UpdateCart_Cart_ReturnsTrue()
         {
             //arrange
@@ -184,7 +184,7 @@ namespace InstantEatService.Tests.Controller
             Assert.IsTrue(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод Delete должен удалить корзину и вернуть true")]
         public async Task DeleteCart_Id_ReturnsTrue()
         {
             //arrange
