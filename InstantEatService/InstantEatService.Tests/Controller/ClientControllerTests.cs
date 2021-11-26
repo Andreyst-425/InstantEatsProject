@@ -48,7 +48,7 @@ namespace InstantEatService.Tests.Controller
             return client;
         }
         
-        [Test]
+        [Test(Description = "Метод GetAll должен вернуть всех клиентов")]
         public async Task GetAll_Clients()
         {
             var mockService = new Mock<IClientService>();
@@ -74,7 +74,7 @@ namespace InstantEatService.Tests.Controller
             });
         }
 
-        [Test]
+        [Test(Description = "Метод GetClientById должен вернуть клиента по его идентификатору")]
         public async Task GetClientById_Client_ClientDto()
         {
             var mockService = new Mock<IClientService>();
@@ -94,7 +94,7 @@ namespace InstantEatService.Tests.Controller
             });
         }
 
-        [Test]
+        [Test (Description = "Метод GetClientByPhoneNumber должен вернуть клиента по его номеру телефона")]
         public async Task GetClientByPhoneNumber_Number_ClientDto()
         {
             var mockService = new Mock<IClientService>();
@@ -114,7 +114,7 @@ namespace InstantEatService.Tests.Controller
             });
         }
 
-        [Test]
+        [Test(Description = "Метод AddClient должен создать нового клиента и  вернуть true")]
         public async Task AddClient_ReturnsTrue()
         {
             var mockService = new Mock<IClientService>();
@@ -127,7 +127,7 @@ namespace InstantEatService.Tests.Controller
             Assert.IsTrue(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод EditClientName должен  отредактировать имя клиента и вернуть true")]
         public async Task EditClientName_ReturnsTrue()
         {
             var mockService = new Mock<IClientService>();
@@ -141,7 +141,7 @@ namespace InstantEatService.Tests.Controller
             Assert.IsTrue(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод UpdateClient должен  обновить данные клиента и вернуть true")]
         public async Task UpdateClient_Id_CreateDto_ReturnsTrue()
         {
             var mockService = new Mock<IClientService>();
@@ -159,7 +159,7 @@ namespace InstantEatService.Tests.Controller
             Assert.IsTrue(actual);
         }
 
-        [Test]
+        [Test (Description = "Метод DeleteClient должен  удалить клиента и вернуть true")]
         public async Task DeleteClient_Id_ReturnsTrue()
         {
             var mockService = new Mock<IClientService>();

@@ -95,21 +95,9 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.GetSoups">
+        <member name="M:InstantEatService.Controllers.FoodItemController.GetFoodItemByCategory(System.String)">
             <summary>
-            Получить все блюда из категории "Супы"
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.GetSalades">
-            <summary>
-            Получить все блюда из категории "Салаты"
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:InstantEatService.Controllers.FoodItemController.GetBurgers">
-            <summary>
-            Получить все блюда из категории "Бургеры"
+            Получить все блюда из заданной категории 
             </summary>
             <returns></returns>
         </member>
@@ -150,13 +138,13 @@
             <param name="max"> максимальная цена </param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Controllers.InstantEatJsonConroller.PostFoodItems">
+        <member name="M:InstantEatService.Controllers.InstantEatJsonController.PostFoodItems">
             <summary>
             Положить foodItems в БД (имя файла должно быть food_items.json)
             Директория: ../InstantEatService\bin\Debug\net5.0
             </summary>
         </member>
-        <member name="M:InstantEatService.Controllers.InstantEatJsonConroller.PostCategories">
+        <member name="M:InstantEatService.Controllers.InstantEatJsonController.PostCategories">
             <summary>
             Положить categories в БД (имя файла должно быть categories.json)
             Директория: ../InstantEatService\bin\Debug\net5.0
@@ -242,45 +230,46 @@
             Ссылка на картинку
             </summary>
         </member>
-        <member name="M:InstantEatService.Models.ICartsRepository.AddCart(InstantEatService.Models.Cart)">
+        <member name="M:InstantEatService.Repositories.ICartsRepository.AddCart(InstantEatService.Models.Cart)">
             <summary>
             Добавить корзину
             </summary>
             <param name="cart"> Данные для добавления корзины </param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Models.ICartsRepository.DeleteCart(System.Int32)">
+        <member name="M:InstantEatService.Repositories.ICartsRepository.DeleteCart(System.Int32)">
             <summary>
             Удалить корзину
             </summary>
             <param name="id"> Идентификатор корзины </param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Models.ICartsRepository.GetAllCarts">
+        <member name="M:InstantEatService.Repositories.ICartsRepository.GetAllCarts">
             <summary>
             Получить все корзины
             </summary>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Models.ICartsRepository.GetCart(System.Int32)">
+        <member name="M:InstantEatService.Repositories.ICartsRepository.GetCart(System.Int32)">
             <summary>
             Получить корзину по id
             </summary>
             <param name="id"> Идентификатор корзины </param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Models.ICartsRepository.RestoreCart(System.Int32)">
+        <member name="M:InstantEatService.Repositories.ICartsRepository.RestoreCart(System.Int32)">
             <summary>
             Восстановить корзину (по логике названия)
             </summary>
             <param name="id"> Идентификатор корзины </param>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Models.ICartsRepository.UpdateCart(InstantEatService.Models.Cart,System.Int32)">
+        <member name="M:InstantEatService.Repositories.ICartsRepository.UpdateCart(InstantEatService.Models.Cart,System.Int32)">
             <summary>
             Изменить корзину
             </summary>
             <param name="cart"> Данные для изменения корзины </param>
+            <param name="id"> Идентфиикатор корзины</param>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Repositories.ICategoriesRepository.GetAllCategories">
@@ -423,7 +412,6 @@
             Изменить информацию о корзине
             </summary>
             <param name="cart"> Информация для обновления </param>
-            <param name="id"> Идентификатор корзины </param>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Services.ICartService.GetCurrentCarts">
@@ -524,22 +512,11 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:InstantEatService.Services.IFoodItemsService.GetAllBurgers">
+        <member name="M:InstantEatService.Services.IFoodItemsService.GetFoodItemsByCategory(System.String)">
             <summary>
-            Получить список всех бургеров
+            Получить список всех блюд какой-либо категории
             </summary>
-            <returns></returns>
-        </member>
-        <member name="M:InstantEatService.Services.IFoodItemsService.GetAllSalades">
-            <summary>
-            Получить список всех салатов
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:InstantEatService.Services.IFoodItemsService.GetAllSoups">
-            <summary>
-            Получить список всех супов
-            </summary>
+            <param name="category"> категория </param>
             <returns></returns>
         </member>
         <member name="M:InstantEatService.Services.IFoodItemsService.GetAllWithCategories">

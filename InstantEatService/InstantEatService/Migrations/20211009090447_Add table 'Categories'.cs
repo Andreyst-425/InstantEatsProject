@@ -18,9 +18,6 @@ namespace InstantEatService.Migrations
                 {
                     table.PrimaryKey("PK_Category_Id", x => x.Id);
                 });
-
-           
-          
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

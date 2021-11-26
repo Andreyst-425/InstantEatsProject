@@ -23,7 +23,7 @@ namespace InstantEatService.Tests.Controller
             return categories;
         }
         
-        [Test]
+        [Test(Description = "Метод Get должен вернуть все категории")]
         public async Task Get_Categories()
         {
             var mockService = new Mock<ICategoryService>();
