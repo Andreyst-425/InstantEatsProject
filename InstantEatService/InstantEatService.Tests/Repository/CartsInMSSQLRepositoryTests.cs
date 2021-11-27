@@ -100,7 +100,7 @@ namespace InstantEatService.Tests.Repository
             return carts;
         }
 
-        [Test]
+        [Test(Description = "Метод GetAllCarts должен вернуть все корзины")]
         public async Task GetAllCarts_Carts()
         {
             //arrange
@@ -123,7 +123,7 @@ namespace InstantEatService.Tests.Repository
             Assert.IsTrue(actual.Count() == 1, "GetAll returned no items");
         }
 
-        [Test]
+        [Test(Description = "Метод GetCart должен вернуть корзину по её идентификатору")]
         public async Task GetCart_Id_Cart()
         {
             //arrange
@@ -166,7 +166,7 @@ namespace InstantEatService.Tests.Repository
             });
         }
 
-        [Test]
+        [Test(Description = "Метод DeleteCart должен удалить корзину и вернуть true")]
         public async Task DeleteCart_ExistingCartId_ReturnsTrue()
         {
             //arrange
@@ -186,7 +186,7 @@ namespace InstantEatService.Tests.Repository
             Assert.IsTrue(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод DeleteCart не должен удалить корзину и вернуть false")]
         public async Task DeleteCart_NotExistingCartId_ReturnsFalse()
         {
             //arrange
@@ -206,7 +206,7 @@ namespace InstantEatService.Tests.Repository
             Assert.IsFalse(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод RestoreCart должен восстановить корзину и вернуть true")]
         public async Task RestoreCart_ExistingCartId_ReturnsTrue()
         {
             //arrange
@@ -226,7 +226,7 @@ namespace InstantEatService.Tests.Repository
             Assert.IsTrue(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод RestoreCart не должен восстановить корзину и вернуть false")]
         public async Task RestoreCart_NotExistingCartId_ReturnsFalse()
         {
             //arrange
@@ -246,7 +246,7 @@ namespace InstantEatService.Tests.Repository
             Assert.IsFalse(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод AddCart должен добавить корзину")]
         public async Task AddCart_CartData_ReturnsCart()
         {
             //assert
@@ -280,7 +280,7 @@ namespace InstantEatService.Tests.Repository
             });
         }
 
-        [Test]
+        [Test(Description = "Метод UpdateCart должен обновить данные корзины")]
         public async Task UpdateCart_ExistingCartData_ReturnsTrue()
         {
             //arrange
@@ -304,7 +304,7 @@ namespace InstantEatService.Tests.Repository
             Assert.IsTrue(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод UpdateCart не должен обновить данные корзины")]
         public async Task UpdateCart_NotExistingCartData_ReturnsFalse()
         {
             //arrange

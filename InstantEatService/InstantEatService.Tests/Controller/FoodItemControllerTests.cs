@@ -134,7 +134,7 @@ namespace InstantEatService.Tests.Controller
             return listDto;
         }
         
-        [Test]
+        [Test(Description = "Метод GetAll должен вернуть все блюда")]
         public async Task GetAll_FoodItemsDtoList()
         {
             var mockService = new Mock<IFoodItemsService>();
@@ -159,7 +159,7 @@ namespace InstantEatService.Tests.Controller
             });
         }
 
-        [Test]
+        [Test(Description = "Метод GetFoodItemByCategory должен вернуть все блюда с их категориями")]
         public async Task GetFoodItemByCategory_CategoryName_FoodItemsDtoList()
         {
             var mockService = new Mock<IFoodItemsService>();
@@ -183,7 +183,7 @@ namespace InstantEatService.Tests.Controller
             });
         }
 
-        [Test]
+        [Test(Description = "Метод GetFoodItemById должен вернуть блюдо по его идентификатору")]
         public async Task GetById_Id_FoodItemDto()
         {
             var mockService = new Mock<IFoodItemsService>();
@@ -206,7 +206,7 @@ namespace InstantEatService.Tests.Controller
             });
         }
 
-        [Test]
+        [Test(Description = "Метод Add должен добавить блюдо")]
         public async Task Add_CreateDto_FoodItem()
         {
             var mockService = new Mock<IFoodItemsService>();
@@ -235,7 +235,7 @@ namespace InstantEatService.Tests.Controller
             
         }
 
-        [Test]
+        [Test(Description = "Метод Update должен обновить данные блюда")]
         public async Task Update_Id_CreateDto_ReturnsTrue()
         {
             var mockService = new Mock<IFoodItemsService>();
@@ -257,7 +257,7 @@ namespace InstantEatService.Tests.Controller
             
         }
 
-        [Test]
+        [Test(Description = "Метод Delete должен удалить блюдо и вернуть true")]
         public async Task Delete_Id_ReturnTrue()
         {
             var mockService = new Mock<IFoodItemsService>();
@@ -270,7 +270,7 @@ namespace InstantEatService.Tests.Controller
             Assert.IsTrue(actual);
         }
 
-        [Test]
+        [Test(Description = "Метод FilterByPrice должен вернуть все блюда в заданных ценовых пределах")]
         public async Task FilterByPrice_Min_Max_FoodItems()
         {
             var mockService = new Mock<IFoodItemsService>();
@@ -299,3 +299,6 @@ namespace InstantEatService.Tests.Controller
         }
     }
 }
+
+
+

@@ -15,7 +15,7 @@ namespace InstantEatService.Tests.Controller
             return true;
         }
         
-        [Test]
+        [Test(Description = "Метод PostFoodItems должен что-то делать")]
         public async Task PostFoodItems()
         {
             var mockService = new Mock<IJsonDataService>();
@@ -27,7 +27,7 @@ namespace InstantEatService.Tests.Controller
             Assert.IsTrue(actual);
         }
         
-        [Test]
+        [Test(Description = "Метод PostCategories должен что-то делать")]
         public async Task PostCategories()
         {
             var mockService = new Mock<IJsonDataService>();
